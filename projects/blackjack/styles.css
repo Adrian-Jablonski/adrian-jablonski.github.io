@@ -1,0 +1,159 @@
+body {
+    position: relative;
+    background-color: lightgray;
+}
+
+#table {
+    height: auto;
+    background-color: skyblue;
+    border-radius: 20px;
+    border: 2px solid black;
+    margin-top: 44px;
+}
+
+#play-game {
+    background-color: grey;
+    padding: 40px;
+    margin-top: -40px;
+}
+
+#messages {
+    text-align: center;
+    font-size: 30px;
+    height: 80px;
+    margin-top: 20px
+}
+
+#dealer-section {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+#player-section {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#pot {
+    width: 90%;
+    margin: 0 auto -20px auto;
+    font-size: 30px;
+    color: yellow;
+}
+
+.cash {
+    margin: 4px 0 4px 0;
+    color: green;
+    font-weight: 900;
+    font-size: 1.1em;
+}
+
+#dealer-hand, #player-hand{
+    background-color: lightblue;
+    border-radius: 5px;
+    height: 120px;
+
+}
+
+.dealer-card, .player-card {
+    height: 100px;
+    width: auto;
+    margin: 10px;
+}
+
+#betting-section {
+    text-align: center;
+    height:60px;
+}
+
+#bet {
+    width: 60px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    font-size: 1.5em;
+    margin: 10px 10px;
+    width: 100px;
+}
+
+#hit-button, #stand-button {
+    visibility: hidden;
+}
+
+#soft-points {
+    font-size: 40px;
+}
+
+.navbar {
+    background-color: darkblue;
+}
+
+p {
+    text-indent: 30px;
+}
+
+#project-header {
+    padding-top: 35px;
+    margin-bottom: -30px;
+    margin-left: 5%;
+}
+
+#content {
+    margin: 0 5%;
+    padding-bottom: 20px;
+}
+
+.line {
+    margin: -5px 0 5px 0;
+}
+
+.line3 {
+    border: 2px solid white;
+    width: 200px;
+}
+
+/* Section below is needed for contact info section */
+.contact {
+    background-color: black;
+    color: white;
+    height: auto;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+a i {
+    text-decoration: none;
+
+}
+
+li.contact-link-icons {
+    list-style: none;
+    margin-left: 20px;
+    font-size: 1.3em;
+    display: inline;
+}
+
+.fa-linkedin {
+    background-color:#0077B5;
+    color: white;
+}
+
+.fa-github {
+    color: white;
+}
+
+.fa-free-code-camp {
+    color: white;
+    background-color: green;
+}
+
+#copyright {
+    margin-top: 20px;
+}

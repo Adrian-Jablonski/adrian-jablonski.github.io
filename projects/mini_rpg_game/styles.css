@@ -1,0 +1,93 @@
+body {
+    position: relative;
+    background-color: lightgray;
+}
+
+p {
+    text-indent: 30px;
+}
+
+#project-header {
+    padding-top: 35px;
+    margin-bottom: -30px;
+}
+
+#content {
+    margin: 0 5%
+}
+
+#top-image{
+    margin-top: 50px;
+    max-width: 550px;
+    width: 70%;
+    height: auto;
+}
+
+.section-heading {
+    margin-left: 150px;
+}
+
+.text-game-screenshot {
+    max-width: 550px;
+    width: 95%;
+    height: auto;
+}
+
+.game-screenshot {
+    max-width: 400px;
+    height: auto;
+    display: inline-block;
+    padding-bottom: 20px;
+}
+
+.line {
+    border: 1px solid black;
+}
+
+.line3 {
+    border: 2px solid white;
+    width: 200px;
+}
+
+.navbar {
+    background-color: darkblue;
+}
+
+/* Section below is needed for contact info section */
+.contact {
+   background-color: black;
+    color: white;
+    height: auto;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+a i {
+    text-decoration: none;
+
+}
+
+li.contact-link-icons {
+    list-style: none;
+    margin-left: 20px;
+    font-size: 1.3em;
+    display: inline;
+}
+
+.fa-linkedin {
+    background-color:#0077B5;
+    color: white;
+}
+
+.fa-github {
+    color: white;
+}
+
+.fa-free-code-camp {
+    color: white;
+    background-color: green;
+}
+
+#copyright {
+    margin-top: 20px;
+}

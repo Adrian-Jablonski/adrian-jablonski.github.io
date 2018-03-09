@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mini RPG Game</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="font-mfizz.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color: lightblue">
+        
+        <div id="navbar">
+            <ul>
+                <li id="nav-project-description" class="change-background active-nav-bar"><a href="#project-summary">Project Summary</a></li>
+                <li id="nav-text-version" class="change-background"><a href="#text-version">Text Version</a></li>
+                <li id="nav-pygame-version" class="change-background"><a href="#pygame-version">Pygame Version</a></li>
+                <li id="nav-code-logic" class="change-background"><a href="#code-logic">Code Logic</a></li>
+                <li id="nav-screenshots" class="change-background"><a href="#screenshots">Screenshots</a></li>
+                
+            </ul>
+        </div>
+        <h1 class="section-heading">Mini RPG Game</h1>
+        <div>
+            <img id="top-image" class="img-responsive" src="images/Hero_RPG_Pygame.png">
+        </div>
+        <div id="project-summary">
+            <h2>Project Summary</h2>
+            <hr class="line">
+            <p>This project was started as an assignment for my coding bootcamp. The purpose of the project was to develop a text RPG game in Python which had a Hero character attacking different characters who all had different special abilities and different power and health levels. </p>
+            <p></p>
+        </div>
+        <div id="text-version">
+            <h2><a href="https://github.com/Adrian-Jablonski/python-excercises/tree/master/Hero_RPG_V2" target="_blank">Text Version</a></h2>
+            <hr class="line">
+            <img class="img-responsive text-game-screenshot" src="images/Hero_RPG_Fight.png">
+            <p>The text version of the game is played in a Python Terminal by selecting numbers from the menus that show up. This game includes 7 different characters to fight. Each character kill gives you coins which can be used to buy either armor, weapons, level upgrades, or tonic. </p>
+            <p>I also found out that there is a way to add color and icons to the Python Terminal. So I took this game a step further and updated it to look more visually appealing then the default Python Terminal. However, I found that these icons and colors work best on Mac OS and in Visual Studio Code. The code for this text version of the game along with instructions are located on my <a href="https://github.com/Adrian-Jablonski/python-excercises/tree/master/Hero_RPG_V2" target="_blank">Github page.</a></p>
+        </div>
+        <div id="pygame-version">
+            <h2><a href="https://github.com/Adrian-Jablonski/python-excercises/tree/master/Hero_RPG_V3_Pygame">Pygame Version</a></h2>
+            <hr class="line">
+            <p>After completion of the text RPG game, I made it my personal project to recreate the text version into a graphical game using Pygame. The Pygame version is played using mostly mouse clicks. </p>
+            <p><b>Below are some of the actions that are currently possible in the game.</b></p>
+            <ul>
+                <li>Player able to battle enemies and receive coins from kills</li>
+                <li>Health bar available above player an enemy during battle along with the damage dealt</li>
+                <li>Enemies respawn after being killed</li>
+                <li>Movement to other map areas with new enemies</li>
+                <li>Hero able to drink healing potion</li>
+                <li>Enemies like the mage, ranger, and dragon are able to attack from long range</li>
+                <li>Mage is able to freeze player causing him to not be able to move for a few seconds</li>
+                <li>Store is usable to buy armour, weapons, healing potions, and level upgrades</li>
+                <li>Scrollable history log is available</li>
+            </ul>
+            <p><b>Future goals to improve game</b></p>
+            <ul>
+                <li>Create ability for higher level enemies to auto attack the hero</li>
+                <li>Create a larger game world with more areas so that all enemies will appear</li>
+                <li>Add ability to save and load game</li>
+            </ul>
+        </div>
+        <div id="code-logic">
+            <h2>The logic behind the code</h2>
+            <hr class="line">
+            <h3>How do the defense levels work?</h3>
+            <p>Below are lines of code that control the damage dealt based on the defense level of the character.</p>
+            <p>The defense_benefit variable calculates the amount to reduce from the oponents power level. </p>
+            <p>The defense_times variable calculates how many random numbers to generate before the opponent is no longer limited with their power.</p>
+            <code>
+                1. damage = random.randint(0, self.power) 
+                <br>
+                2. defense_benefit = round(enemy.defense * .3)
+                <br>
+                3. defense_times = round(enemy.defense / 2)
+                <br>
+                4. count = 0
+                <br>
+                5. while damage >= max((self.power - defense_benefit), 1) and count &lt defense_times:
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                damage = random.randint(0, self.power)
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                count += 1 
+                <br><br>
+            </code>
+            <p><b>For Example:</b> The screenshot of the terminal below the code shows an example of a fight between the Hero with 8 power and 20 defense and a Medic with 10 power and 10 defense. The medics defense benefit would come out to 3 (10 Medic defense level * .30). And defense times would come out to 5 (10 defense level / 2) So the hero can only do less than 5 damage (8 Hero power level - 3) in the next random numbers generated</p>
+            <p>The hero's first attack shows that the first three damage random numbers are 5, 8, 7. Those three are ignored since they are not less than 5. The fourth random number is a 0 which ends up being the damage dealt to the medic. This makes it unlikely that the hero will do over 5 damage but not impossible. If the first 5 random numbers generated are all above 5, then the sixth number will be the damage dealt even if it ends up being the highest.</p>
+            <img class="img-responsive" src="images/Defense_Level_Example.png">
+        </div>
+        
+        
+        <div id="screenshots">
+            <h2>Screenshots</h2>
+            <hr class="line">
+            <img class="img-responsive game-screenshot" src="images/Hero_RPG_Pygame2.png">
+            <img class="img-responsive game-screenshot" src="images/Hero_RPG_Pygame3.png">
+            <img class="img-responsive game-screenshot" src="images/Hero_RPG_Pygame4.png">
+            <img class="img-responsive game-screenshot" src="images/Hero_RPG_Pygame5.png">
+            
+        </div>
+        
+    </body>
+    
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    
+</html>

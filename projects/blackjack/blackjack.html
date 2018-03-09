@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blackjack</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../styles/font-mfizz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    <a class="navbar-brand" href="#">Blackjack</a>
+                    </div>
+                    <div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#play-game">Play Game</a></li>
+                                <li><a href="#project-summary">Project Summary</a></li>
+                                <li><a href="#instructions">Instructions</a></li>
+                                <li><a href="#code-logic">Code Logic</a></li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </nav>    
+        <div id="play-game">
+            <h1 id=project-header>Blackjack</h1>
+            <div id="table">
+                <div id="messages">Select bet and click deal to start game</div>
+
+                <div id="dealer-section">
+                    <label>Dealer:</label>
+
+                    <label id="dealer-points" class="points"></label>
+                    <p id="dealer-cash" class="cash">Cash $</p>
+                    <div id="dealer-hand" class="hand">
+                        <img id="dealer-card0" class="dealer-card">
+                        <img id="dealer-card1" class="dealer-card">
+                        <img id="dealer-card2" class="dealer-card">
+                        <img id="dealer-card3" class="dealer-card">
+                        <img id="dealer-card4" class="dealer-card">
+                        <img id="dealer-card5" class="dealer-card">
+                        <img id="dealer-card6" class="dealer-card">
+                    </div>
+                </div>
+                <div id="player-section">
+                    <label>Player: </label>
+                    <label id="player-points" class="points"></label>
+                    <p id="player-cash" class="cash">Cash $</p>
+
+                    <div id="player-hand" class="hand">
+                        <img id="player-card0" class="player-card">
+                        <img id="player-card1" class="player-card">
+                        <img id="player-card2" class="player-card">
+                        <img id="player-card3" class="player-card">
+                        <img id="player-card4" class="player-card">
+                        <img id="player-card5" class="player-card">
+                        <img id="player-card6" class="player-card">
+                    </div>
+                </div>
+                <div id="pot">Pot : $0</div>
+                <div id="betting-section">
+                    <br>
+                    <input type="button" id="minus" value="-" onclick="decreaseBet()">
+                    <input id="bet" name="breakTime" value= "5">
+                    <input type="button" id="plus" value="+" onclick="increaseBet()">
+                </div>
+                <div class="buttons">
+
+                    <button id="hit-button" onclick="hit()">Hit</button>
+
+                    <button id="deal-button" onclick="deal()">Deal</button>
+
+                    <button id="stand-button" onclick="stand()">Stand</button>
+
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="project-summary" class="container-fluid">
+                <h2>Project Summary</h2>
+                <hr class="line">
+                <p>This project was an assignment for my coding bootcamp. The purpose of the project was to create a blackjack game using HTML, CSS, and JavaScript which had the ability to:</p>
+                <ul>
+                    <li>Draw two random cards to the player and one to the dealer</li>
+                    <li>Give the player another card each time they click the hit button</li>
+                    <li>Have the dealer draw cards until he goes over 17</li>
+                    <li>Calculate points and determine the winner</li>
+                    <li>Create a betting system</li>
+                </ul>
+            </div>
+            <div id="instructions" class="container-fluid">
+                <h2>Gameplay Instructions</h2>
+                <hr class="line">
+                <p>The game located on top of the page is the actual game I developed and is playable.</p> 
+                <ol>
+                    <li>To start, just place a bet using either the + or - buttons or type in a bet amount into the input box</li>
+                    <li>Click deal after the bet is selected</li>
+                    <li>Select hit or stand</li>
+                    <li>Once the hand is over, the table will reset. Repeat steps 1 - 3 until the dealer or you are out of money</li>
+                </ol>
+            </div>
+            <div id="code-logic" class="container-fluid">
+                <h2>The Logic Behind the Code</h2>
+                <hr class="line">
+                <h3>Ace Value. 1 or 11?</h3>
+                <p>An ace in Blackjack can have either a value of 1 or 11. The value is a 1 whenever a player goes over 21.</p>
+                <p>To include this event in my game, I created a new variable called playerSoftPoints which starts at a value of 0 for each hand and player. The code below shows that if the point value of the card drawn is 11, 10 should be subtracted from playerSoftPoints.</p>
+                <code>
+                    if (myCard.pointValue === 11) {
+                    <br>&nbsp;&nbsp;&nbsp;
+                        playerSoftPoints -= 10
+                    <br><br>
+                </code>
+                
+                <p>The next line in the code checks if the player went over 21 and if the player has any playerSoftPoints. If the player went over 21, 10 is subtracted from the player's points and added back to playerSoftPoints. </p>
+                
+                <code>
+                    if (playerPoints > 21 && playerSoftPoints &lt 0) {
+                    <br>&nbsp;&nbsp;&nbsp;
+                        playerPoints -= 10;
+                    <br>&nbsp;&nbsp;&nbsp;
+                        myHand.softPoints -= 10;
+                    <br>&nbsp;&nbsp;&nbsp;
+                        playerSoftPoints += 10;
+                    <br>
+                    }    
+                    <br><br>
+                </code>
+                <p>The next part of the code checks if the player went over 21 and ends the hand. So if the player had Aces in his hand and went over 21, the hand will continue. If the player had no Aces and went over 21, the player lost the hand.</p>
+                
+                <h3><b>Ace used as 1 point Example</b></h3>
+                <img src="images/blackjack_ace_example.png" style="width:75%">
+            </div>
+        </div>
+        <div id="contact" class="container-fluid contact">
+            <div class="row skill-picture fluid">
+                <div class="col-md-12">
+                    <h2 style="font-size: 18px">Contact</h2>
+                    <hr class="line3">
+                    <div id="contact-links">
+                        <li class="contact-link-icons"><a href="https://www.linkedin.com/in/adrian-jablonski-2bb76262/" target="_blank"><i class="fa fa-linkedin fa-2x linkedin-bottom" aria-hidden="true"></i></a></li>
+                        <li class="contact-link-icons"><a href="https://github.com/Adrian-Jablonski" target="_blank"><i class="fa fa-github fa-2x github-bottom" aria-hidden="true"></i></a></li>
+                        <li class="contact-link-icons"><a href="https://www.freecodecamp.org/adrian-jablonski" target="_blank"><i class="fa fa-free-code-camp fa-2x" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+            <div class="row fluid">
+                <div class="col-md-12">
+                    <a href="../../index.html"><p id="copyright"></p></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    
+</html>
