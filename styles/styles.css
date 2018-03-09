@@ -108,6 +108,10 @@ li.change-background :hover {
     margin-top: 5px;
 }
 
+.project-picture {
+    max-width: 375px;
+}
+
 .about-me {
     background-color: lightgray;
     height: auto;

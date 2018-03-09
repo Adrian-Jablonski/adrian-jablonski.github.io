@@ -9,6 +9,7 @@ body {
     border-radius: 20px;
     border: 2px solid black;
     margin-top: 44px;
+    max-width: 1000px;
 }
 
 #play-game {
