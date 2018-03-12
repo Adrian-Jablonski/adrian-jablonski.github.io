@@ -17,7 +17,7 @@ body, html {
 }
 
 #weather-section {
-    margin: 0 20% 0px 20%;
+    margin: 0 auto 0px auto;
     min-width: 300px;
     max-width: 500px;
     background-color: rgba(211, 211, 211, .3);
