@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../styles/font-mfizz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+        <img class="background-picture" src="images/weather_pictures/Sunny.png">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    <a class="navbar-brand" href="#">Weather</a>
+                    </div>
+                    <div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#weather">Weather App</a></li>
+                                <li><a href="#project-summary">Project Summary</a></li>
+                                <li><a href="#project-infomation">Infomation</a></li>
+<!--                                <li><a href="#code-logic">Code Logic</a></li>-->
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </nav>    
+        <div id="weather">
+            <div id="weather-section">
+                <div id="units">
+                    <a onclick="metricUnits()"><p id="metric">&#176C</p></a>
+                    <a onclick="imperialUnits()"><p id="imperial">&#176F</p></a>
+                </div>
+                <h1>Weather App</h1>
+                <div id="check-weather">
+                    <h4>Show me the weather in:</h4>
+                    <input id="location" placeholder="Enter Zip Code or City and State"><br>
+                    <button id="submit" type="submit" onclick="update_location()">Check Weather</button>
+                </div>
+            
+            </div>
+        
+        
+            <h2 id="status">Allow location to see your current weather.</h2>
+            <div id="weather-information">
+                <p id="current-location"></p>
+                <p id="current-country"></p>
+                <div id="weather-status">
+                    <p id="condition"></p>
+                    <p id="current-temp"></p>
+                    <img id="weather-icon">
+                    <div id="max-min-section">
+                        <p id="max-min-description">High / Low</p>
+                        <p id="max-min-temp"></p>
+                    </div>
+                    <div id="weather-box"></div>
+                    <div id="astro">
+                        <p id="sunrise"></p>
+                        <p id="sunset"></p>
+                    </div>
+                </div>
+                <p id="local-time"></p>
+                <p id="source">Source: <a href="https://www.apixu.com/weather/" target="_blank">Apixu</a></p>
+            </div>
+        </div>
+        <div id="content">
+            <div id="project-summary" class="container-fluid">
+                <h2>Project Summary</h2>
+                <hr class="line">
+                <p class="indent">
+                    This project was an assignment for my coding bootcamp. The purpose of the project was to create a weather app that allows a user to look up the weather in Houston, TX using a weather API. 
+                </p>
+                <p class="indent">I took it a step further and added;</p> 
+                <ul>
+                    <li>Geolocation from Google in order to show the weather for the user's current location</li>
+                    <li>An input box where the user could look up the location for any city in the world</li>
+                    <li>Conversion between Celsius and Fahrenheit</li>
+                    <li>Background images that change depending on the weather</li>
+                </ul> 
+                
+
+            </div>
+            <div id="project-infomation" class="container-fluid">
+                <h2>Weather App Infomation</h2>
+                <hr class="line">
+                <p class="indent">This weather app was created using <a href="https://www.apixu.com/" target="_blank">Apixu</a> which I used because they provide a flexible search where you can find cities by their name or zip code. They also provided weather icons and an excel workbook listing all weather conditions.</p>
+                <p class="indent">I also used Google Maps Geolocation API which allows the app to show the user's weather at their current location. If the user blocks their location from the app, they still have the option to type in their city to find out their weather. </p>
+                <p class="indent">The weather is set to fahrenheit by default but the top right corner also gives the user the option to see their weather in either Celsius or Fahrenheit. Choosing Celsius will also change the times to a 24 hour clock.</p>
+                
+            </div>
+<!--
+            <div id="code-logic" class="container-fluid">
+                <h2>The Logic Behind the Code</h2>
+                <hr class="line">
+            </div>
+-->
+        </div>
+        <div id="contact" class="container-fluid contact">
+            <div class="row skill-picture fluid">
+                <div class="col-md-12">
+                    <h2 style="font-size: 18px">Contact</h2>
+                    <hr class="line3">
+                    <div id="contact-links">
+                        <li class="contact-link-icons"><a href="https://www.linkedin.com/in/adrian-jablonski-2bb76262/" target="_blank"><i class="fa fa-linkedin fa-2x linkedin-bottom" aria-hidden="true"></i></a></li>
+                        <li class="contact-link-icons"><a href="https://github.com/Adrian-Jablonski" target="_blank"><i class="fa fa-github fa-2x github-bottom" aria-hidden="true"></i></a></li>
+                        <li class="contact-link-icons"><a href="https://www.freecodecamp.org/adrian-jablonski" target="_blank"><i class="fa fa-free-code-camp fa-2x" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+            <div class="row fluid">
+                <div class="col-md-12">
+                    <a href="../../index.html"><p id="copyright"></p></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDan7vPZnf7TOz_0cfck6u5M9RqWD7pYA&callback=myMap"
+    type="text/javascript"></script>
+    
+</html>

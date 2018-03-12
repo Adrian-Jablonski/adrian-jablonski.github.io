@@ -1,0 +1,209 @@
+body, html {
+    height: 100%;
+    margin: 0;
+
+}
+
+.background-picture {
+    /* The image used */
+    position: fixed;
+    top: 0;
+    height: 100%; 
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+#weather-section {
+    margin: 0 20% 0px 20%;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: rgba(211, 211, 211, .3);
+    padding: 10px;
+    height: 170px;
+    text-align: center;
+}
+
+#metric, #imperial {
+    display: inline-block;
+    float: right;
+    cursor: pointer;
+    color: blue;
+} 
+
+#metric {
+    margin-left: 5px;
+    border-left: 1px solid black;
+    padding-left: 4px;
+}
+
+
+#location {
+    width: 260px;
+    margin-bottom: 5px;
+}
+
+#current-location, #current-country, #local-time {
+    font-size: 20px;
+}
+
+#current-location {
+    margin-bottom: 0px;
+}
+
+#condition {
+    margin: -10px 0;
+}
+
+#current-temp {
+    font-size: 20px;
+}
+
+#current-temp, #weather-icon {
+    display: inline-block;
+}
+
+#max-min-section {
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+#max-min-description {
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+#weather-box {
+    font-size: 20px;
+}
+
+#local-time {
+    text-align: right;
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: -2px;
+    margin-top: -15px;
+    clear: both;
+}
+
+#source {
+    text-align: right;
+    font-style: italic;
+    font-size: 10px;
+    margin-right: 3px;
+}
+
+#location-info {
+    margin-left: 40px;
+}
+
+#current-location, #current-country {
+    font-weight: 700;
+    text-align: center;
+}
+
+#status {
+    text-align: center;
+    margin-top: 80px;
+}
+
+#weather-information {
+    margin: 20px 20% 0 20%;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: rgba(224, 255, 255, .3);
+}
+
+#weather-status {
+    text-align: center;
+}
+
+#sunrise {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#sunset {
+    display: inline-block;
+}
+
+#weather {
+    height: 500px;
+    margin-top: 50px;
+}
+
+p.indent {
+    text-indent: 30px;
+}
+
+#project-header {
+    padding-top: 35px;
+    margin-bottom: -30px;
+    margin-left: 5%;
+}
+
+#content {
+    margin: 0 5%;
+    margin-bottom: 40px;
+}
+
+.line {
+    margin: -5px 0 5px 0;
+}
+
+.line3 {
+    border: 2px solid white;
+    width: 200px;
+}
+
+.navbar {
+    background-color: darkblue;
+}
+
+
+#content {
+    background-color: rgba(224, 255, 255, .6);
+}
+
+
+/* Section below is needed for contact info section */
+.contact {
+    background-color: black;
+    color: white;
+    height: auto;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+a i {
+    text-decoration: none;
+
+}
+
+li.contact-link-icons {
+    list-style: none;
+    margin-left: 20px;
+    font-size: 1.3em;
+    display: inline;
+}
+
+.fa-linkedin {
+    background-color:#0077B5;
+    color: white;
+}
+
+.fa-github {
+    color: white;
+}
+
+.fa-free-code-camp {
+    color: white;
+    background-color: green;
+}
+
+#copyright {
+    margin-top: 20px;
+}
