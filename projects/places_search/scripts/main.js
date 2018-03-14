@@ -5,7 +5,7 @@ var apiKey = "&key=AIzaSyDU-fy2Dvxy-7WUjmYF8PovXrwjz5qeFzs";
 
 $.ajax({
     
-    url: "https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+houston&key=AIzaSyCXE2apPhQ6bm1FwxfyX-6HuMevRjTMmwQ",
+    url: "https://crossorigin.me/https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+houston&key=AIzaSyCXE2apPhQ6bm1FwxfyX-6HuMevRjTMmwQ",
     type: 'GET',
     crossDomain: true,
      dataType:"jsonp",
