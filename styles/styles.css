@@ -68,13 +68,14 @@ li.change-background :hover {
 #text {
     width: 70%;
     text-align: center;
-    color: red;
+    color: blue;;
     font-size: 32px;
     font-weight: 900;
     position: absolute;
     top: 140px;
     margin-left: 15%;
     margin-right: 15%;
+    background-color: rgba(211, 211, 211, .5);
 }
 
 .skills {
@@ -112,17 +113,50 @@ li.change-background :hover {
     max-width: 375px;
 }
 
+.activity-finder-description {
+    margin-top: 53px;
+}
+
+#my-projects-content {
+    background-color: rgba(211, 211, 211, .7);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#my-projects {
+    background-image: url(../Images/projects-picture.jpg);
+    background-size: 1800px;
+}
+
+/*
+#about-me {
+    background-image: url(../Images/education_picture.jpg);
+    background-size: 1800px;
+}
+*/
+
+.about-me-pic1 {
+    background-image: url(../Images/education_picture.jpg);
+    background-size: 1800px;
+}
+
+.about-me-pic2 {
+    background-image: url(../Images/work_picture.jpeg);
+    background-size: 1800px;
+}
+
+.about-me-pic3 {
+    background-image: url(../Images/coding_picture.jpg);
+    background-size: 1800px;
+}
+
 .about-me {
-    background-color: lightgray;
     height: auto;
     color: black;
     text-align: center;
     padding: 0px 0 30px 0;
     margin-bottom: 20px;
-}
-
-.about-me-text {
-    margin: 0 5%;
+    min-height: 800px;
 }
 
 #education {
@@ -159,13 +193,19 @@ li.change-background :hover {
 }
 
 .line2 {
-    width: 40%;
+    width: 50%;
+    min-width: 380px;
     border: 2px solid black;
 }
 
 .line3 {
     border: 2px solid white;
     width: 200px;
+}
+/* Used to keep arrows centered in about me section*/
+.line4 { 
+    border: 0px solid white;
+    width: 270px;
 }
 
 .linkedin-bottom, .github-bottom {
@@ -185,8 +225,90 @@ li.change-background :hover {
 
 p.about-me-text {
     text-indent: 30px;
+    text-align: justify;
+    font-size: 20px;
+    font-weight: 500;
+    color: dark
+}
+
+#about-me-content {
+    width: 70%;
+    min-width: 380px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 20px 0 40px 0;
+    background-color: rgba(211, 211, 211, .70);
 }
 
 .about-me-heading {
     margin-left: 3%;
+    margin-right: 3%;
+}
+
+#about-me-nav, #about-me-categories {
+    display: inline-flex;
+    font-size: 14px;
+}
+
+#about-me-education, #about-me-experience, #about-me-software-dev, #about-me-before-web-dev, #about-me-after-web-dev {
+    margin-right: 15px;
+    padding: 10px;
+    font-weight: 700;
+}
+
+#about-me-before-web-dev {
+    margin-right: 40px;
+}
+
+#about-me-education, #about-me-experience, #about-me-software-dev {
+    margin-bottom: -50px;
+}
+
+#about-me-software-dev {
+    margin-left: 30px;
+    margin-right: 50px
+}
+
+#about-me-experience {
+    margin-right: 100px;
+}
+
+#about-me-education:hover, #about-me-experience:hover, #about-me-software-dev:hover, .previous-about-me:hover, .next-about-me:hover {
+    background-color: forestgreen;
+    color: azure;
+}
+
+.active-about-me {
+    background-color: lawngreen;
+}
+
+#about-me-section1, #about-me-section2, #about-me-section3 {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.about-me-section {
+    text-align: center;
+    align-content: center;
+}
+
+.about-me-heading-main {
+    text-align: center;
+    margin: 0 auto;
+    width: 200px;
+    margin-bottom: -30px;
+}
+
+#arrows {
+    display: inline-flex;
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
+.previous-about-me, .next-about-me {
+    margin-top: 20px;
+}
+
+.hide-arrow {
+    visibility: hidden; 
 }

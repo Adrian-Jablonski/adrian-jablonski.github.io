@@ -12,6 +12,11 @@ var htmlTagEnd = ["</p>", "</h1>", "</h2>", "</h3>", "</h4>", "</h5>", "</h6>", 
 var date = new Date();
 var currentYear = date.getFullYear();
 
+var aboutMe = 0;
+
+$("#about-me-section2, #about-me-section3").hide();
+//$(".previous-about-me").hide();
+
 for (i = 0; i < n; i++) {
     strArray[i] = str[i];
 }
@@ -86,6 +91,105 @@ var skillSectionLogos = function(){
 
 setInterval(skillSectionLogos, 1000);
 
+$(".previous-about-me").click(function() {
+    if (aboutMe === 1) {
+        $("#about-me-section2").slideUp(1000);
+        $("#about-me-section1").slideDown(1000);
+        $(".about-me-heading-main").text("Education");
+        $(".previous-about-me").addClass('hide-arrow');
+        $("#about-me-education, #about-me-before-web-dev").addClass("active-about-me");
+        $("#about-me-experience, #about-me-after-web-dev").removeClass("active-about-me");
+        $("#about-me").removeClass("about-me-pic2");
+        $("#about-me").addClass("about-me-pic1");
+        aboutMe -= 1;
+    }
+    else if (aboutMe === 2) {
+        $("#about-me-section3").slideUp(1000);
+        $("#about-me-section2").slideDown(1000);
+        $(".about-me-heading-main").text("Work Experience");
+        $(".next-about-me").removeClass('hide-arrow');
+        $("#about-me-experience, #about-me-before-web-dev").addClass("active-about-me");
+        $("#about-me-software-dev, #about-me-after-web-dev").removeClass("active-about-me");
+        $("#about-me").removeClass("about-me-pic3");
+        $("#about-me").addClass("about-me-pic2");
+        aboutMe -= 1;
+    }
+    
+});
+
+// Clicking on arrows
+$(".next-about-me").click(function() {
+    if (aboutMe === 0) {
+        $("#about-me-section1").slideUp(1000);
+        $("#about-me-section2").slideDown(1000);
+        $(".about-me-heading-main").text("Work Experience");
+        $(".previous-about-me").removeClass('hide-arrow');
+        $("#about-me-education, #about-me-after-web-dev").removeClass("active-about-me");
+        $("#about-me-experience, #about-me-before-web-dev").addClass("active-about-me");
+        $("#about-me").removeClass("about-me-pic1");
+        $("#about-me").addClass("about-me-pic2");
+        aboutMe += 1;
+    }
+    else if (aboutMe === 1) {
+        $("#about-me-section2").slideUp(1000);
+        $("#about-me-section3").slideDown(1000);
+        $(".about-me-heading-main").text("Coding Bootcamp");
+        $(".next-about-me").addClass('hide-arrow');
+        $("#about-me-experience, #about-me-before-web-dev").removeClass("active-about-me");
+        $("#about-me-software-dev, #about-me-after-web-dev").addClass("active-about-me");
+        $("#about-me").removeClass("about-me-pic2");
+        $("#about-me").addClass("about-me-pic3");
+        aboutMe += 1;
+    }
+    
+});
+
+//Clicking on about nav bar text
+$("#about-me-education").click(function() {
+    if (aboutMe != 0) {
+        $("#about-me-section2, #about-me-section3").slideUp(1000);
+        $("#about-me-section1").slideDown(1000);
+        $(".about-me-heading-main").text("Education");
+        $(".previous-about-me").addClass('hide-arrow');
+        $(".next-about-me").removeClass('hide-arrow');
+        $("#about-me-education, #about-me-before-web-dev").addClass("active-about-me");
+        $("#about-me-experience, #about-me-software-dev, #about-me-after-web-dev").removeClass("active-about-me");
+        $("#about-me").removeClass("about-me-pic2 about-me-pic3");
+        $("#about-me").addClass("about-me-pic1");
+        
+        aboutMe = 0;
+    }
+});
+
+$("#about-me-experience").click(function() {
+    if (aboutMe != 1) {
+        $("#about-me-section1, #about-me-section3").slideUp(1000);
+        $("#about-me-section2").slideDown(1000);
+        $(".about-me-heading-main").text("Work Experience");
+        $(".previous-about-me").removeClass('hide-arrow');
+        $(".next-about-me").removeClass('hide-arrow');
+        $("#about-me-experience, #about-me-before-web-dev").addClass("active-about-me");
+        $("#about-me-education, #about-me-software-dev, #about-me-after-web-dev").removeClass("active-about-me");
+        $("#about-me").removeClass("about-me-pic1 about-me-pic3");
+        $("#about-me").addClass("about-me-pic2");
+        aboutMe = 1;
+    }
+});
+
+$("#about-me-software-dev").click(function() {
+    if (aboutMe != 2) {
+        $("#about-me-section1, #about-me-section2").slideUp(1000);
+        $("#about-me-section3").slideDown(1000);
+        $(".about-me-heading-main").text("Coding Bootcamp");
+        $(".previous-about-me").removeClass('hide-arrow');
+        $(".next-about-me").addClass('hide-arrow');
+        $("#about-me-software-dev, #about-me-after-web-dev").addClass("active-about-me");
+        $("#about-me-education, #about-me-experience, #about-me-before-web-dev").removeClass("active-about-me");
+        $("#about-me").removeClass("about-me-pic1 about-me-pic2");
+        $("#about-me").addClass("about-me-pic3");
+        aboutMe = 2;
+    }
+});
 
 $("#copyright").text("\u00A9 " + currentYear + " JablonskiWebDevelopment");
 
