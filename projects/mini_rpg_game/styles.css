@@ -1,6 +1,7 @@
 body {
     position: relative;
     background-color: lightgray;
+    background-image: url(images/RPG_Background.png);
 }
 
 p {
@@ -13,10 +14,15 @@ p {
 }
 
 #content {
-    margin: 0 5%
+    margin: 0 auto;
+    background-color: rgba(211, 211, 211, .8);
+    width: 80%;
+    max-width: 1000px;
 }
 
 #top-image{
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 50px;
     max-width: 550px;
     width: 70%;
@@ -31,13 +37,18 @@ p {
     max-width: 550px;
     width: 95%;
     height: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .game-screenshot {
     max-width: 400px;
+    width: 95%;
     height: auto;
     display: inline-block;
     padding-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .line {
