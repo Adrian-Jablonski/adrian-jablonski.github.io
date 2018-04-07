@@ -113,6 +113,10 @@ li.change-background :hover {
     max-width: 375px;
 }
 
+.project-picture1 {
+    max-width: 437px;
+}
+
 .activity-finder-description {
     margin-top: 53px;
 }
@@ -125,6 +129,8 @@ li.change-background :hover {
 
 #my-projects {
     background-image: url(../Images/projects-picture.jpg);
+    background-repeat:no-repeat;
+    background-position:center; 
     background-size: 1800px;
 }
 
@@ -137,16 +143,22 @@ li.change-background :hover {
 
 .about-me-pic1 {
     background-image: url(../Images/education_picture.jpg);
+    background-repeat:no-repeat;
+    background-position:center; 
     background-size: 1800px;
 }
 
 .about-me-pic2 {
     background-image: url(../Images/work_picture.jpeg);
+    background-repeat:no-repeat;
+    background-position:center; 
     background-size: 1800px;
 }
 
 .about-me-pic3 {
     background-image: url(../Images/coding_picture.jpg);
+    background-repeat:no-repeat;
+    background-position:center; 
     background-size: 1800px;
 }
 
@@ -237,7 +249,7 @@ p.about-me-text {
     margin: 0 auto;
     margin-top: 40px;
     padding: 20px 0 40px 0;
-    background-color: rgba(211, 211, 211, .70);
+    background-color: rgba(220, 240, 270, .70);
 }
 
 .about-me-heading {
