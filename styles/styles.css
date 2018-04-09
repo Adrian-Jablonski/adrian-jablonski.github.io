@@ -93,6 +93,14 @@ li.change-background :hover {
     margin-bottom: -20px;
 }
 
+.jquery-effect {
+    min-height: 124px;
+}
+
+.bootstrap-logo-sizing {
+    min-height: 160px;
+}
+
 .bootstrap-text {
     display: inline-block;
 }

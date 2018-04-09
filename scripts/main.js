@@ -60,16 +60,16 @@ var bootStrapText = 0;
 var skillSectionLogos = function(){
     var width = document.body.clientWidth;
     
-    if (width <= 765) {
-        $("#jquery-logo").removeClass("jquery-effect");
-    }
-    else {
-        $("#jquery-logo").addClass("jquery-effect");
-        $(".jquery-effect").slideUp(1500);
-        $(".jquery-effect").fadeIn(1500);
-        $(".jquery-effect").fadeOut(1500);
-        $(".jquery-effect").slideDown(1500);
-    }
+//    if (width <= 765) {
+//        $("#jquery-logo").removeClass("jquery-effect");
+//    }
+//    else {
+    $("#jquery-logo").addClass("jquery-effect");
+//    $(".jquery-effect").slideUp(1500);
+    $(".jquery-effect").fadeIn(1500);
+    $(".jquery-effect").fadeOut(1500);
+//    $(".jquery-effect").slideDown(1500);
+//    }
     
     randNumb = Math.floor(Math.random() * colors.length);
     $("#css-logo, .css-text").css("color", colors[randNumb]);
@@ -78,12 +78,11 @@ var skillSectionLogos = function(){
     $(".html-line").text(htmlTagStart[randNumb] + "HTML" + htmlTagEnd[randNumb]);
     
     
-    
     if (bootStrapText === 0) {
         $("#bootstrap-text").removeClass("bootstrap-text");
         bootStrapText += 1;
     }
-    else if (bootStrapText === 1 && width > 765){
+    else if (bootStrapText === 1){
         $("#bootstrap-text").addClass("bootstrap-text");
         bootStrapText = 0;
     }
