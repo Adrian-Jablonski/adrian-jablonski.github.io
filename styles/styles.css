@@ -118,7 +118,7 @@ li.change-background :hover {
 }
 
 .activity-finder-description {
-    margin-top: 53px;
+    margin-top: 12px;
 }
 
 #my-projects-content {
@@ -131,7 +131,8 @@ li.change-background :hover {
     background-image: url(../Images/projects-picture.jpg);
     background-repeat:no-repeat;
     background-position:center; 
-    background-size: 1800px;
+    height: auto;
+    background-size: 2900px;
 }
 
 /*
