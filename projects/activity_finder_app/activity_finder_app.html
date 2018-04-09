@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activity Finder App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../styles/font-mfizz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    <a class="navbar-brand" href="#">Activity Finder</a>
+                    </div>
+                    <div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#project-summary">Project Summary</a></li>
+                                <li><a href="#project-infomation">API Infomation</a></li>
+<!--                                <li><a href="#code-logic">Code Logic</a></li>-->
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </nav>    
+        <div id="content">
+            <h1 id="project-header">Activity Finder App</h1>
+                <div>
+                    <img id="top-image" class="img-responsive" src="images/Activity_Finder_App.png">
+            </div>
+            
+            <div id="project-summary" class="container-fluid">
+                <h2>Project Summary</h2>
+                <hr class="line">
+                <p class="indent">
+                    This project was the first group project created in my bootcamp. This was a front end development project with the below requirements.
+                </p>
+                <ul>
+                    <li>Use at least 2 remote API's</li>
+                    <li>Use github to collaborate with team members</li>
+                </ul>
+                <p>My group decided to create an app to help a user find an activity in a city that they would type in. They would also be able to check what type of activity they are looking for such as indoor, outdoor, sports, shopping, wellness, landmarks, bar, restaurant, and museums.</p>
+
+            </div>
+            <div id="project-infomation" class="container-fluid">
+                <h2>API Information</h2>
+                <p>This app was created using the following API's;</p>
+                <ul>
+                    <li>Google Places</li>
+                    <li>Google Maps</li>
+                    <li>Google Place Autocomplete</li>
+                    <li>Apixu Weather</li>
+                </ul>
+                <p>The <b>Google Places API</b> was used to retrieve information on specific activities in a city. The below code shows how we accessed the API.</p>
+                <code>
+                    var location = document.getElementById("location").value;   <span class="comments">// Gets location from input box</span>
+                    <br>
+                    location = location.substr(0, location.lastIndexOf(","));   <span class="comments">// Removes country from location</span>
+                    <br>
+                    var apiKey = YOUR API KEY HERE  <span class="comments">// Insert your API key here</span>
+                    <br>
+                    activity = "type="
+                    <br>
+                    if ($("#check_box1").is(":checked")) {
+                    <br>&nbsp;&nbsp;
+                        activity += $("#check_box1").val();
+                    <br>
+                    }   <span class="comments">// Adds activity name to the activity variable if check box is checked</span>
+                    <br>
+                    var fullUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + activity + "+in+" + location + "&radius=45000" + apiKey;    <span class="comments">// The full URL to be used to retrieve the Google Places data</span>  
+                </code>
+                <br><br>
+                <p>The <b>Google Maps API</b> was used to map the data that was received. Below is an example of a map for a search for restaurants in Houston. We also used Google's Marker Clustering which groups any map markers that are close to each other and labels them with the number of places in the area.</p>
+                <img class="img-responsive screenshot" src="images/Activity_Finder_Map.png">
+                
+                <p>The <b>Google Place Autocomplete API</b> was used to show a list of cities as the user types in the input box. We used this together with Google Places to help the user in finding cities and to prevent search errors from the user typing a city name incorrectly.</p>
+                <p>The below code shows how to access the API to show cities only. The options parameter is optional but leaving it blank would autocomplete for specific places as well as cities.</p>
+                <code>
+                    function autoComplete() {
+                    <br>&nbsp;&nbsp;
+                    var input = document.getElementById('location');    <span class="comments">// Auto complete input box for locations </span>
+                    <br>&nbsp;&nbsp;
+                    var options = {
+                    <br>&nbsp;&nbsp;&nbsp;&nbsp;
+                    types: ["(cities)"] // <span class="comments">Limits search results to city </span>
+                    <br>&nbsp;&nbsp;
+                    };
+                    <br>&nbsp;&nbsp;
+                    var autocomplete = new google.maps.places.Autocomplete(input, options); 
+                    <br>
+                    }
+
+                </code>
+                <img class="img-responsive screenshot" src="images/Activity_Finder_Autocomplete.png">
+                
+                <p> The <b>Apixu Weather API</b> is used to show the current weather in the right corner of the navigation bar for the city the user is looking for activities in. It was used because it worked well with Google Places Autocomplete once the country was removed from the input field text. Another reason Apixu was used is because they provide weather icons for each weather condition which gives a nice visualization for the user. </p>
+            </div>
+            
+<!--
+            <div id="code-logic" class="container-fluid">
+                <h2>The Logic Behind the Code</h2>
+                <hr class="line">
+            </div>
+-->
+        </div>
+        <div id="contact" class="container-fluid contact">
+            <div class="row skill-picture fluid">
+                <div class="col-md-12">
+                    <h2 style="font-size: 18px">Contact</h2>
+                    <hr class="line3">
+                    <div id="contact-links">
+                        <li class="contact-link-icons"><a href="https://www.linkedin.com/in/adrian-jablonski-2bb76262/" target="_blank"><i class="fa fa-linkedin fa-2x linkedin-bottom" aria-hidden="true"></i></a></li>
+                        <li class="contact-link-icons"><a href="https://github.com/Adrian-Jablonski" target="_blank"><i class="fa fa-github fa-2x github-bottom" aria-hidden="true"></i></a></li>
+                        <li class="contact-link-icons"><a href="https://www.freecodecamp.org/adrian-jablonski" target="_blank"><i class="fa fa-free-code-camp fa-2x" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+            <div class="row fluid">
+                <div class="col-md-12">
+                    <a href="../../index.html"><p id="copyright"></p></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDan7vPZnf7TOz_0cfck6u5M9RqWD7pYA&callback=myMap"
+    type="text/javascript"></script>
+    
+</html>
