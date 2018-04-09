@@ -114,7 +114,7 @@ li.change-background :hover {
 }
 
 .project-picture1 {
-    max-width: 437px;
+    max-width: 375px;
 }
 
 .activity-finder-description {
@@ -262,14 +262,19 @@ p.about-me-text {
     font-size: 14px;
 }
 
-#about-me-education, #about-me-experience, #about-me-software-dev, #about-me-before-web-dev, #about-me-after-web-dev {
-    margin-right: 15px;
+#about-me-education, #about-me-experience, #about-me-before-web-dev{
+    margin-right: 10px;
     padding: 10px;
     font-weight: 700;
 }
 
+#about-me-software-dev, #about-me-after-web-dev  {
+    padding: 10px 0;
+    font-weight: 700;
+}
+
 #about-me-before-web-dev {
-    margin-right: 40px;
+    margin-right: 20px;
 }
 
 #about-me-education, #about-me-experience, #about-me-software-dev {
@@ -278,7 +283,7 @@ p.about-me-text {
 
 #about-me-software-dev {
     margin-left: 30px;
-    margin-right: 50px
+    margin-right: 20px
 }
 
 #about-me-experience {
