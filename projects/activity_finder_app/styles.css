@@ -1,7 +1,6 @@
 body, html {
     height: 100%;
     margin: 0;
-
 }
 
 #content {
@@ -24,10 +23,10 @@ body, html {
 
 #project-header {
     padding-top: 35px;
-    margin-bottom: 20px;
+    margin-bottom: -30px;
 }
 
-.top-image{
+#top-image{
     margin-right: auto;
     margin-left: auto;
     margin-top: 50px;

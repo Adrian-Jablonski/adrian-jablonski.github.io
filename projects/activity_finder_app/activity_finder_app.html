@@ -60,7 +60,7 @@
                 <ul>
                     <li>Google Places</li>
                     <li>Google Maps</li>
-                    <li>Google Place Autocomplete</li>
+                    <li>Google Autocomplete</li>
                     <li>Apixu Weather</li>
                 </ul>
                 <p>The <b>Google Places API</b> was used to retrieve information on specific activities in a city. The below code shows how we accessed the API.</p>
@@ -82,8 +82,8 @@
                     var fullUrl = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + activity + "+in+" + location + "&radius=45000" + apiKey;    <span class="comments">// The full URL to be used to retrieve the Google Places data</span>  
                 </code>
                 <br><br>
-                <p>The <b>Google Maps API</b> was used to map the data that was received. Below is an example of a map for a search for restaurants in Houston. We also used Google's Marker Clustering which groups any map markers that are close to each other and labels them with the number of places in the area.</p>
-                <img class="img-responsive screenshot" src="images/Activity_Finder_Map.png">
+                <p>The <b>Google Maps API</b> was used to map the data that was received. Below is an example of the Map for a search for restaurants in Houston. We also used Google's Marker Clustering which groups any map markers that are close to each other and labels them with the number of places in the area.</p>
+                <img class="img-responsive" src="images/Activity_Finder_Map.png">
                 
                 <p>The <b>Google Place Autocomplete API</b> was used to show a list of cities as the user types in the input box. We used this together with Google Places to help the user in finding cities and to prevent search errors from the user typing a city name incorrectly.</p>
                 <p>The below code shows how to access the API to show cities only. The options parameter is optional but leaving it blank would autocomplete for specific places as well as cities.</p>
@@ -103,11 +103,13 @@
                     }
 
                 </code>
-                <img class="img-responsive screenshot" src="images/Activity_Finder_Autocomplete.png">
+<img class="img-responsive screenshot" src="images/Activity_Finder_Autocomplete.png">
                 
                 <p> The <b>Apixu Weather API</b> is used to show the current weather in the right corner of the navigation bar for the city the user is looking for activities in. It was used because it worked well with Google Places Autocomplete once the country was removed from the input field text. Another reason Apixu was used is because they provide weather icons for each weather condition which gives a nice visualization for the user. </p>
+                
             </div>
             
+
 <!--
             <div id="code-logic" class="container-fluid">
                 <h2>The Logic Behind the Code</h2>
