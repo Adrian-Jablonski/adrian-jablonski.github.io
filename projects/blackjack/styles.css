@@ -23,7 +23,7 @@ body {
 #messages {
     text-align: center;
     font-size: 25px;
-    height: 80px;
+    height: auto;
     margin-top: 10px
 }
 
@@ -40,8 +40,8 @@ body {
 
 #pot {
     width: 90%;
-    margin: 0 auto -20px auto;
-    font-size: 30px;
+    margin: 0 auto -30px auto;
+    font-size: 25px;
     color: yellow;
 }
 
@@ -58,6 +58,7 @@ body {
     height: auto;
     width: 77vw;
     max-width: 900px;
+    min-height: 40px;
 }
 
 .dealer-card, .player-card {
