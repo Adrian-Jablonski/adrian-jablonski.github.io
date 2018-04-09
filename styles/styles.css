@@ -206,7 +206,7 @@ li.change-background :hover {
 
 .line2 {
     width: 50%;
-    min-width: 380px;
+    min-width: 300px;
     border: 2px solid black;
 }
 
@@ -217,7 +217,7 @@ li.change-background :hover {
 /* Used to keep arrows centered in about me section*/
 .line4 { 
     border: 0px solid white;
-    width: 270px;
+    width: 200px;
 }
 
 .linkedin-bottom, .github-bottom {
@@ -245,7 +245,7 @@ p.about-me-text {
 
 #about-me-content {
     width: 70%;
-    min-width: 380px;
+    min-width: 350px;
     margin: 0 auto;
     margin-top: 40px;
     padding: 20px 0 40px 0;
@@ -282,7 +282,7 @@ p.about-me-text {
 }
 
 #about-me-experience {
-    margin-right: 100px;
+    margin-right: 80px;
 }
 
 #about-me-education:hover, #about-me-experience:hover, #about-me-software-dev:hover, .previous-about-me:hover, .next-about-me:hover {
