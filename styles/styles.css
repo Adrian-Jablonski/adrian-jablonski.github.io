@@ -90,7 +90,11 @@ li.change-background :hover {
 .skill-name {
     font-size: 25px;
     font-weight: 700;
-    margin-bottom: -20px;
+    margin-bottom: 10px;
+}
+
+.skill-icon {
+    font-size:80px; 
 }
 
 .jquery-effect {
