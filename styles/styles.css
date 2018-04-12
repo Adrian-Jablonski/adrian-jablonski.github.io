@@ -125,6 +125,11 @@ li.change-background :hover {
     max-width: 375px;
 }
 
+.project-video {
+    max-height: 308px;
+    max-width: 600px;
+}
+
 .project-picture1 {
     max-width: 375px;
 }
@@ -144,7 +149,6 @@ li.change-background :hover {
     background-repeat:no-repeat;
     background-position:center; 
     height: auto;
-    background-size: 2900px;
 }
 
 /*
@@ -158,21 +162,18 @@ li.change-background :hover {
     background-image: url(../Images/education_picture.jpg);
     background-repeat:no-repeat;
     background-position:center; 
-    background-size: 1800px;
 }
 
 .about-me-pic2 {
     background-image: url(../Images/work_picture.jpeg);
     background-repeat:no-repeat;
     background-position:center; 
-    background-size: 1800px;
 }
 
 .about-me-pic3 {
     background-image: url(../Images/coding_picture.jpg);
     background-repeat:no-repeat;
     background-position:center; 
-    background-size: 1800px;
 }
 
 .about-me {
