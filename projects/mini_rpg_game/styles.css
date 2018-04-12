@@ -20,13 +20,12 @@ p {
     max-width: 1000px;
 }
 
-#top-image{
-    margin-right: auto;
-    margin-left: auto;
+#project-summary {
+    margin-top: 60px;
+}
+
+.project-video{
     margin-top: 50px;
-    max-width: 550px;
-    width: 70%;
-    height: auto;
 }
 
 .section-heading {
