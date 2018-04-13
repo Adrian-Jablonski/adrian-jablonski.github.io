@@ -1,7 +1,6 @@
 body {
     overflow-x: hidden;
     /* To prevent horizontal scrolling bar from showing up*/
-    background-color: black;
 }
 
 .fa-linkedin {
@@ -18,12 +17,14 @@ body {
     background-color: green;
 }
 
+/*
 .top-image {
     min-width: 100%;
     max-width: 100%;
-    height: 500px;
+    height: 700px;
     align-items: center;
 }
+*/
 
 a i {
     text-decoration: none;
@@ -31,7 +32,7 @@ a i {
 }
 
 .navbar {
-    background-color: darkblue;
+    background-color: rgba(0, 0, 139, .5);
 }
 
 .links {
@@ -55,9 +56,18 @@ li.change-background :hover {
     padding: 6px 0 17px 0;
 }
 
+#home {
+    background-image: url(../Images/Top_Image.jpg);
+    background-repeat:no-repeat;
+    background-position:center; 
+    min-width: 100%;
+    max-width: 100%;
+    height: 700px;
+    align-items: center;
+}
+
 .home {
     background-color: black;
-    height: 600px;
 }
 
 .section-heading {
@@ -72,7 +82,7 @@ li.change-background :hover {
     font-size: 32px;
     font-weight: 900;
     position: absolute;
-    top: 140px;
+    top: 240px;
     margin-left: 15%;
     margin-right: 15%;
     background-color: rgba(211, 211, 211, .5);
@@ -87,10 +97,25 @@ li.change-background :hover {
     padding-bottom: 30px;
 }
 
+#skills {
+    background-image: url(../Images/skills-picture.jpg);
+    background-repeat:no-repeat;
+    background-position:center; 
+    height: auto;
+}
+
+#my-skills-content {
+    background-color: rgba(0, 0, 0, .85);
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
 .skill-name {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 700;
     margin-bottom: 10px;
+    
 }
 
 .skill-icon {
