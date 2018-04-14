@@ -107,7 +107,7 @@ li.change-background :hover {
 #my-skills-content {
     background-color: rgba(0, 0, 0, .85);
     width: 70%;
-    min-width: 350px;
+    min-width: 280px;
     margin: 0 auto;
     margin-top: 50px;
 }
@@ -116,7 +116,6 @@ li.change-background :hover {
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 10px;
-    
 }
 
 .skill-icon {
@@ -252,7 +251,7 @@ li.change-background :hover {
 
 .line2 {
     width: 50%;
-    min-width: 300px;
+    min-width: 240px;
     border: 2px solid black;
 }
 
@@ -291,7 +290,7 @@ p.about-me-text {
 
 #about-me-content {
     width: 70%;
-    min-width: 350px;
+    min-width: 300px;
     margin: 0 auto;
     margin-top: 50px;
     padding: 0px 0 40px 0;
@@ -328,12 +327,11 @@ p.about-me-text {
 }
 
 #about-me-software-dev {
-    margin-left: 30px;
-    margin-right: 20px
+    margin-left: 0px;
 }
 
 #about-me-experience {
-    margin-right: 80px;
+    margin-right: 70px;
 }
 
 #about-me-education:hover, #about-me-experience:hover, #about-me-software-dev:hover, .previous-about-me:hover, .next-about-me:hover {
