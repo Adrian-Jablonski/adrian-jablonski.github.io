@@ -109,7 +109,7 @@ li.change-background :hover {
     width: 70%;
     min-width: 350px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .skill-name {
@@ -172,7 +172,7 @@ li.change-background :hover {
 
 #my-projects-content {
     background-color: rgba(211, 211, 211, .7);
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
@@ -293,8 +293,8 @@ p.about-me-text {
     width: 70%;
     min-width: 350px;
     margin: 0 auto;
-    margin-top: 40px;
-    padding: 20px 0 40px 0;
+    margin-top: 50px;
+    padding: 0px 0 40px 0;
     background-color: rgba(220, 240, 270, .70);
 }
 
