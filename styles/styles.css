@@ -101,6 +101,7 @@ li.change-background :hover {
     background-image: url(../Images/skills-picture.jpg);
     background-repeat:no-repeat;
     background-position:center; 
+    background-size: cover;
     height: auto;
 }
 
