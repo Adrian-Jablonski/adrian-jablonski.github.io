@@ -150,12 +150,6 @@ li.change-background :hover {
     width: 375px;
 }
 
-@media only screen and (max-width: 400px) {
-    .project-picture {
-    width: 95%;
-}
-}
-
 .project-video {
     max-height: 308px;
     max-width: 600px;
@@ -179,6 +173,7 @@ li.change-background :hover {
     background-image: url(../Images/projects-picture.jpg);
     background-repeat:no-repeat;
     background-position:center; 
+    background-size: cover;
     height: auto;
 }
 
@@ -199,6 +194,7 @@ li.change-background :hover {
     background-image: url(../Images/work_picture.jpeg);
     background-repeat:no-repeat;
     background-position:center; 
+    background-size: cover;
 }
 
 .about-me-pic3 {
@@ -289,7 +285,7 @@ p.about-me-text {
 }
 
 #about-me-content {
-    width: 70%;
+    width: 80%;
     min-width: 300px;
     margin: 0 auto;
     margin-top: 50px;
@@ -372,4 +368,10 @@ p.about-me-text {
 
 .hide-arrow {
     visibility: hidden; 
+}
+
+@media only screen and (max-width: 400px) {
+        .project-picture {
+        width: 95%;
+    }
 }
