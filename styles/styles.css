@@ -73,19 +73,19 @@ li.change-background :hover {
 .section-heading {
     font-size: 42px;
     text-align: center;
+    font-weight: 400;
 }
 
 #text {
     width: 70%;
     text-align: center;
-    color: blue;;
-    font-size: 32px;
-    font-weight: 900;
+    color: ghostwhite;
+    font-size: 34px;
     position: absolute;
     top: 140px;
     margin-left: 15%;
     margin-right: 15%;
-    background-color: rgba(211, 211, 211, .5);
+    background-color: rgba(0, 0, 0, .4);
 }
 
 .skills {
@@ -332,12 +332,12 @@ p.about-me-text {
 }
 
 #about-me-education:hover, #about-me-experience:hover, #about-me-software-dev:hover, .previous-about-me:hover, .next-about-me:hover {
-    background-color: forestgreen;
+    background-color: rgba(0, 0, 139, .5);
     color: azure;
 }
 
 .active-about-me {
-    background-color: lawngreen;
+    background-color: rgba(0, 0, 250, .5);
 }
 
 #about-me-section1, #about-me-section2, #about-me-section3 {

@@ -1,4 +1,5 @@
-var str = "Hello. My name is Adrian Jablonski. I am a Web Developer and Software Engineer";
+var str = "Hello. My name is Adrian Jablonski. I am a Web Developer and Software Engineer.";
+//var str = "HELLO. MY NAME IS ADRIAN JABLONSKI. I AM A WEB DEVELOPER AND SOFTWARE ENGINEER";
 var n = str.length;
 var strArray = [];
 var newStrArray;
