@@ -74,7 +74,8 @@
                 <ol>
                    
                     <code>
-                        var stockFile = require("../public/scripts/data/stock_symbols.json");
+                        var stockFile = require
+                        <br>("../public/scripts/data/stock_symbols.json");
                         <br>
                         var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=";
                         <br>
@@ -167,6 +168,7 @@
                 </code>
                 <p>Because the Batch Stock Markey Quote API from Alphavantage can only return current prices for 100 stocks at a time, I had to figure out a way to loop through the JSON file which has over 3,000 stock symbols.</p> 
                 <p>To achieve this, I simply created a variable called stockIndex and initially set it equal to 0. After each time the server runs the API, stockIndex is increased by 100. Once it is greater than the amount of stock symbols in the JSON file, it resets to 0. So since the server is set to automatically run API calls every 24 seconds for 100 stocks, this means it will take about 13 minutes to loop through the 3,000 stock symbols (which was close enough to real time for our project without abusing API calls) </p>
+                <h4>Getting my </h4>
             </div>
         </div>
         <div id="contact" class="container-fluid contact">
