@@ -71,86 +71,86 @@
                 <h4>API</h4>
                 <p>The API I used to receive the stock data was from <a href="https://www.alphavantage.co/documentation/" target="_blank">Alphavantage</a>. The reason I used Alphavantage is because they had good documentation and had batch stock quotes available which allowed me to get the current price for 100 stock symbols at a time. </p>
                 <p>To retreive the data and be able to put it into a database, I used node.js and node-fetch as seen in the code below.</p>
-                <ol>
-                   
-                    <code>
-                        var stockFile = require
-                        <br>("../public/scripts/data/stock_symbols.json");
-                        <br>
-                        var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=";
-                        <br>
-                        var symbol = "MSFT,FB,AAPL";
-                        <br>
-                        var url2 = "&apikey=";
-                        <br>
-                        var apiKey = "Insert your API key here";
-                        <br><br>
-                         <li class="comments">The stockFile variable above accesses the JSON file where the stock symbols are all stored. The remaining variables are all parts of the API link for Batch Stock Quotes. The link is broken up into 4 variables because the symbols will change and because API keys are unique for each person.</li>
-                        <br>
 
-                        1. fetch(url + symbol + url2 + apiKey)
-                        <br>2. &nbsp;&nbsp;
-                            .then(res => res.json())
-                        <br>3. &nbsp;&nbsp;
-                            .then(json => {
-                        <br>4. &nbsp;&nbsp;&nbsp;&nbsp;
-                                var stockData = json;
-                        <br>5. &nbsp;&nbsp;&nbsp;&nbsp;
-                                var stockDataLength = stockData["Stock Quotes"].length;
 
-                        <br><br>
-                        <li class="comments">Lines 1 - 5 retrieve the data from Alphavantage and store it into the stockData variable.</li>
+                <code>
+                    var stockFile = require
+                    <br>("../public/scripts/data/stock_symbols.json");
+                    <br>
+                    var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=";
+                    <br>
+                    var symbol = "MSFT,FB,AAPL";
+                    <br>
+                    var url2 = "&apikey=";
+                    <br>
+                    var apiKey = "Insert your API key here";
+                    <br><br>
+                     <li class="comments">The stockFile variable above accesses the JSON file where the stock symbols are all stored. The remaining variables are all parts of the API link for Batch Stock Quotes. The link is broken up into 4 variables because the symbols will change and because API keys are unique for each person.</li>
+                    <br>
 
-                        <br>6. &nbsp;&nbsp;&nbsp;&nbsp;
-                                for (var i = 0; i &lt stockDataLength; i++) {
-                        <br>7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    var stockName = stockFile[stockIndex + i]["Name"];
-                        <br>8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    var sectorName = stockFile[stockIndex + i]["Sector"];
-                        <br>9 .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    var stockSymbol = (stockData["Stock Quotes"][i]["1. symbol"]);
-                        <br>10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    var stockPrice = (stockData["Stock Quotes"][i]["2. price"]);
-                        <br>11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    var stockVolume = (stockData["Stock Quotes"][i]["3. volume"]);
-                        <br>12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    if (stockVolume === "--") {
-                        <br>13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        stockVolume = 0; // To prevent errors from stocks without a volume
-                        <br>14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    }
-                        <br>15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    var stockPriceDate = (stockData["Stock Quotes"][i]["4. timestamp"]);
-                        <br>
-                        <br>
-                    </code>
-                
-                    <li class="comments">Lines 6 - 15 store get the symbol, name, sector, price, volume, and timestamp data from the API which are later stored in a PostgreSQL database. The stockIndex variable is explained in the Automatic API Calls section of this page.</li>
-                
-                </ol>
+                    1. fetch(url + symbol + url2 + apiKey)
+                    <br>2. &nbsp;&nbsp;
+                        .then(res => res.json())
+                    <br>3. &nbsp;&nbsp;
+                        .then(json => {
+                    <br>4. &nbsp;&nbsp;&nbsp;&nbsp;
+                            var stockData = json;
+                    <br>5. &nbsp;&nbsp;&nbsp;&nbsp;
+                            var stockDataLength = stockData["Stock Quotes"].length;
+
+                    <br><br>
+                    <li class="comments">Lines 1 - 5 retrieve the data from Alphavantage and store it into the stockData variable.</li>
+
+                    <br>6. &nbsp;&nbsp;&nbsp;&nbsp;
+                            for (var i = 0; i &lt stockDataLength; i++) {
+                    <br>7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                var stockName = stockFile[stockIndex + i]["Name"];
+                    <br>8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                var sectorName = stockFile[stockIndex + i]["Sector"];
+                    <br>9 .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                var stockSymbol = (stockData["Stock Quotes"][i]["1. symbol"]);
+                    <br>10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                var stockPrice = (stockData["Stock Quotes"][i]["2. price"]);
+                    <br>11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                var stockVolume = (stockData["Stock Quotes"][i]["3. volume"]);
+                    <br>12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                if (stockVolume === "--") {
+                    <br>13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    stockVolume = 0; // To prevent errors from stocks without a volume
+                    <br>14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                }
+                    <br>15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                var stockPriceDate = (stockData["Stock Quotes"][i]["4. timestamp"]);
+                    <br>
+                    <br>
+                </code>
+
+                <li class="comments">Lines 6 - 15 store get the symbol, name, sector, price, volume, and timestamp data from the API which are later stored in a PostgreSQL database. The stockIndex variable is explained in the Automatic API Calls section of this page.</li>
+
+
                 <h4>PostgreSQL</h4>
                 <p>The next step was to insert the stock data into a PostgreSQL database which was done by the below code which is part of the for loop that was in the API section</p>
                 
-                <ol>
-                    <code>
-                        16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        db.none('INSERT INTO stocks(stock_symbol, current_price, price_update_date, current_volume, stock_price_date, stock_name, sector) values($1, $2, $3, $4, $5, $6, $7)',[stockSymbol, stockPrice, datetime, stockVolume, stockPriceDate, stockName, sectorName]).catch(function(){
-                        <br>17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        });
-                        <br><br>
-                        <li class="comments">The above insert SQL code inserts new stocks into the stocks table. This is only run the first time the code goes through all 3,000 stock symbols.</li>
-                        
-                        <br>18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        db.any('UPDATE stocks SET current_price = $1, price_update_date = $2, current_volume = $3, stock_price_date = $4 WHERE stock_symbol = $5', [stockPrice, datetime, stockVolume, stockPriceDate, stockSymbol]).catch(function(err){
-                        <br>19.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            console.log(err);
-                        <br>18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        });
-                        <br><br>
+                
+                <code>
+                    16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    db.none('INSERT INTO stocks(stock_symbol, current_price, price_update_date, current_volume, stock_price_date, stock_name, sector) values($1, $2, $3, $4, $5, $6, $7)',[stockSymbol, stockPrice, datetime, stockVolume, stockPriceDate, stockName, sectorName]).catch(function(){
+                    <br>17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    });
+                    <br><br>
+                    <li class="comments">The above insert SQL code inserts new stocks into the stocks table. This is only run the first time the code goes through all 3,000 stock symbols.</li>
 
-                    </code>
-                    <li class="comments">The above update SQL code updates the stock prices, dates, and volumes for the stock table. This SQL code does not update the company name or sector since those have been added when the stock symbol was first added to the table and are unlikely to change.</li>
-                </ol>
+                    <br>18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    db.any('UPDATE stocks SET current_price = $1, price_update_date = $2, current_volume = $3, stock_price_date = $4 WHERE stock_symbol = $5', [stockPrice, datetime, stockVolume, stockPriceDate, stockSymbol]).catch(function(err){
+                    <br>19.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        console.log(err);
+                    <br>18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    });
+                    <br><br>
+
+                </code>
+                <li class="comments">The above update SQL code updates the stock prices, dates, and volumes for the stock table. This SQL code does not update the company name or sector since those have been added when the stock symbol was first added to the table and are unlikely to change.</li>
+               
                 
                 <h4>Automatic API calls</h4>
                 <p>The process shown in the above API and PostgreSQL sections are set up with Express.js to run automatically on the server every 24 seconds. At the end of my app.js file, I had the below code which accomplishes this by running the updateBatchStocks function located in a seperate JavaScript file.</p>
@@ -168,7 +168,10 @@
                 </code>
                 <p>Because the Batch Stock Markey Quote API from Alphavantage can only return current prices for 100 stocks at a time, I had to figure out a way to loop through the JSON file which has over 3,000 stock symbols.</p> 
                 <p>To achieve this, I simply created a variable called stockIndex and initially set it equal to 0. After each time the server runs the API, stockIndex is increased by 100. Once it is greater than the amount of stock symbols in the JSON file, it resets to 0. So since the server is set to automatically run API calls every 24 seconds for 100 stocks, this means it will take about 13 minutes to loop through the 3,000 stock symbols (which was close enough to real time for our project without abusing API calls) </p>
-                <h4>Getting my </h4>
+<!--
+                <h4>Database to Front End</h4>
+                <p>Next I had to find a way to retrieve the information from my database using JavaScript. So I created an api.js file where I created API's on my server which I could then access through JavaScript as if they were regular external API's</p>
+-->
             </div>
         </div>
         <div id="contact" class="container-fluid contact">
