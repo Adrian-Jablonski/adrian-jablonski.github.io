@@ -25,7 +25,10 @@ p {
 }
 
 .project-video{
-    margin-top: 50px;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 40px;
+    max-height: 400px;
 }
 
 .section-heading {
