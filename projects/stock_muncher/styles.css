@@ -1,0 +1,104 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color: #0A2E36;;
+}
+
+p {
+    text-indent: 30px;
+}
+
+.video-preview {
+    margin: 0 auto;
+    width: 70%;
+    max-width: 700px;
+    margin-top: 40px;
+    max-height: 400px;
+}
+
+#content {
+    margin: 0 10%;
+    margin-bottom: 40px;
+}
+
+.line {
+    margin: -5px 0 5px 0;
+}
+
+.line3 {
+    border: 2px solid white;
+    width: 200px;
+}
+
+.navbar {
+    background-color: darkblue;
+}
+
+#project-header {
+    padding-top: 35px;
+    margin-bottom: -30px;
+}
+
+#top-image{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    max-width: 950px;
+    width: 95%;
+    height: auto;
+}
+
+.screenshot {
+    margin: 20px auto;
+}
+
+#content {
+    margin: 0 auto;
+    background-color: rgba(211, 211, 211, .6);
+    width: 80%;
+    max-width: 1000px;
+}
+
+.comments {
+    color: darkgreen;
+    font-weight: 900;
+}
+
+/* Section below is needed for contact info section */
+.contact {
+    background-color: black;
+    color: white;
+    height: auto;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+a i {
+    text-decoration: none;
+
+}
+
+li.contact-link-icons {
+    list-style: none;
+    margin-left: 20px;
+    font-size: 1.3em;
+    display: inline;
+}
+
+.fa-linkedin {
+    background-color:#0077B5;
+    color: white;
+}
+
+.fa-github {
+    color: white;
+}
+
+.fa-free-code-camp {
+    color: white;
+    background-color: green;
+}
+
+#copyright {
+    margin-top: 20px;
+}

@@ -145,10 +145,12 @@ li.change-background :hover {
 .project-description {
     font-size: 18px;
     margin-top: 5px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .project-picture {
-    width: 375px;
+    min-width: 250px;
 }
 
 .project-video {
@@ -372,7 +374,15 @@ p.about-me-text {
 }
 
 @media only screen and (max-width: 400px) {
-        .project-picture {
+    .project-picture {
         width: 95%;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    span.project-heading {
+        height: 80px;
+        display: inline-block;
+        vertical-align: middle;
     }
 }

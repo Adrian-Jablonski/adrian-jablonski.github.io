@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Muncher</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../styles/font-mfizz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+    <body data-spy="scroll" data-target=".navbar" data-offset="50">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="../../index.html"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    <a class="navbar-brand" href="https://github.com/Adrian-Jablonski/StockMuncher" target="_blank"><i class="fa fa-github fa-1x" aria-hidden="true" style="color:white"></i></a>
+                    <a class="navbar-brand" href="#">Stock Muncher</a>
+                    </div>
+                    <div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="#project-summary">Project Summary</a></li>
+                                <li><a href="#project-infomation">Code Infomation</a></li>
+<!--                                <li><a href="#code-logic">Code Logic</a></li>-->
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </nav>    
+        <div id="content">
+            <h1 id="project-header"><a href="https://github.com/Adrian-Jablonski/StockMuncher" target="_blank"><i class="fa fa-github fa-1x" aria-hidden="true" style="color:black"></i></a> Stock Muncher</h1>
+            <div>
+                <div class="embed-responsive embed-responsive-16by9 video-preview">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ONOcZtX9ALo?rel=0&autoplay=1&loop=1&playlist=ONOcZtX9ALo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <div id="project-summary" class="container-fluid">
+                <h2>Project Summary</h2>
+                <hr class="line">
+                <p class="indent">
+                    This project was the second group project created in my coding bootcamp. This was a full stack development project with the below requirements.
+                </p>
+                <ul>
+                    <li>Use Express.js for your HTTP framework</li>
+                    <li>Use PostgreSql for your database</li>
+                    <li>Integrate with an external API</li>
+                </ul>
+                <p>My group decided to create a Stock Market Research Platform that allows the user to see prices and graphs of any stock symbol they select. The video above shows a short preview of the app.</p>
+                <p>My role in the group was to find a way to retrieve the data from the API, store it in a PostgreSQL database, and then show it on the page for the user to see.</p>
+
+            </div>
+            <div id="project-infomation" class="container-fluid">
+                <h2>Code Information</h2>
+                <h4>CSV and JSON Stock List</h4>
+                <p>To retreive the stock prices, I first downloaded a csv list of around 3,000 stock symbols which included the stock name and sector of the symbols and converted that list to a JSON file. This gave me a list I could later use to: 
+                <ul>
+                    <li>Loop through when making an API call for current stock data</li>
+                    <li>Use to create an autocomplete stock input search</li>
+                </ul>
+                <p>To loop through the JSON data, I created a for loop that added 100 stock symbols seperated by a comma into a single variable. The reason I created this kind of a variable is because the API call takes the symbols in this format as will be seen in the API section below.</p>
+                <h4>API</h4>
+                <p>The API I used to receive the stock data was from <a href="https://www.alphavantage.co/documentation/" target="_blank">Alphavantage</a>. The reason I used Alphavantage is because they had good documentation and had batch stock quotes available which allowed me to get the current price for 100 stock symbols at a time. </p>
+                <p>To retreive the data and be able to put it into a database, I used node.js and node-fetch as seen in the code below.</p>
+                <ol>
+                   
+                    <code>
+                        var stockFile = require("../public/scripts/data/stock_symbols.json");
+                        <br>
+                        var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=";
+                        <br>
+                        var symbol = "MSFT,FB,AAPL";
+                        <br>
+                        var url2 = "&apikey=";
+                        <br>
+                        var apiKey = "Insert your API key here";
+                        <br><br>
+                         <li class="comments">The stockFile variable above accesses the JSON file where the stock symbols are all stored. The remaining variables are all parts of the API link for Batch Stock Quotes. The link is broken up into 4 variables because the symbols will change and because API keys are unique for each person.</li>
+                        <br>
+
+                        1. fetch(url + symbol + url2 + apiKey)
+                        <br>2. &nbsp;&nbsp;
+                            .then(res => res.json())
+                        <br>3. &nbsp;&nbsp;
+                            .then(json => {
+                        <br>4. &nbsp;&nbsp;&nbsp;&nbsp;
+                                var stockData = json;
+                        <br>5. &nbsp;&nbsp;&nbsp;&nbsp;
+                                var stockDataLength = stockData["Stock Quotes"].length;
+
+                        <br><br>
+                        <li class="comments">Lines 1 - 5 retrieve the data from Alphavantage and store it into the stockData variable.</li>
+
+                        <br>6. &nbsp;&nbsp;&nbsp;&nbsp;
+                                for (var i = 0; i &lt stockDataLength; i++) {
+                        <br>7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    var stockName = stockFile[stockIndex + i]["Name"];
+                        <br>8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    var sectorName = stockFile[stockIndex + i]["Sector"];
+                        <br>9 .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    var stockSymbol = (stockData["Stock Quotes"][i]["1. symbol"]);
+                        <br>10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    var stockPrice = (stockData["Stock Quotes"][i]["2. price"]);
+                        <br>11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    var stockVolume = (stockData["Stock Quotes"][i]["3. volume"]);
+                        <br>12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    if (stockVolume === "--") {
+                        <br>13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        stockVolume = 0; // To prevent errors from stocks without a volume
+                        <br>14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    }
+                        <br>15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    var stockPriceDate = (stockData["Stock Quotes"][i]["4. timestamp"]);
+                        <br>
+                        <br>
+                    </code>
+                
+                    <li class="comments">Lines 6 - 15 store get the symbol, name, sector, price, volume, and timestamp data from the API which are later stored in a PostgreSQL database. The stockIndex variable is explained in the Automatic API Calls section of this page.</li>
+                
+                </ol>
+                <h4>PostgreSQL</h4>
+                <p>The next step was to insert the stock data into a PostgreSQL database which was done by the below code which is part of the for loop that was in the API section</p>
+                
+                <ol>
+                    <code>
+                        16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        db.none('INSERT INTO stocks(stock_symbol, current_price, price_update_date, current_volume, stock_price_date, stock_name, sector) values($1, $2, $3, $4, $5, $6, $7)',[stockSymbol, stockPrice, datetime, stockVolume, stockPriceDate, stockName, sectorName]).catch(function(){
+                        <br>17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        });
+                        <br><br>
+                        <li class="comments">The above insert SQL code inserts new stocks into the stocks table. This is only run the first time the code goes through all 3,000 stock symbols.</li>
+                        
+                        <br>18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        db.any('UPDATE stocks SET current_price = $1, price_update_date = $2, current_volume = $3, stock_price_date = $4 WHERE stock_symbol = $5', [stockPrice, datetime, stockVolume, stockPriceDate, stockSymbol]).catch(function(err){
+                        <br>19.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            console.log(err);
+                        <br>18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        });
+                        <br><br>
+
+                    </code>
+                    <li class="comments">The above update SQL code updates the stock prices, dates, and volumes for the stock table. This SQL code does not update the company name or sector since those have been added when the stock symbol was first added to the table and are unlikely to change.</li>
+                </ol>
+                
+                <h4>Automatic API calls</h4>
+                <p>The process shown in the above API and PostgreSQL sections are set up with Express.js to run automatically on the server every 24 seconds. At the end of my app.js file, I had the below code which accomplishes this by running the updateBatchStocks function located in a seperate JavaScript file.</p>
+                <code>
+                    var myStock = require('./util/updateStockPrices.js');
+                    <br>
+                    var server = app.listen(port, function(){
+                    <br>&nbsp;&nbsp; 
+                        console.log('Example app listening on port ' + port);
+                    <br>&nbsp;&nbsp; 
+                        setInterval(myStock.updateBatchStocks, 24000);
+                    <br>
+                    });
+                    <br><br>
+                </code>
+                <p>Because the Batch Stock Markey Quote API from Alphavantage can only return current prices for 100 stocks at a time, I had to figure out a way to loop through the JSON file which has over 3,000 stock symbols.</p> 
+                <p>To achieve this, I simply created a variable called stockIndex and initially set it equal to 0. After each time the server runs the API, stockIndex is increased by 100. Once it is greater than the amount of stock symbols in the JSON file, it resets to 0. So since the server is set to automatically run API calls every 24 seconds for 100 stocks, this means it will take about 13 minutes to loop through the 3,000 stock symbols (which was close enough to real time for our project without abusing API calls) </p>
+            </div>
+        </div>
+        <div id="contact" class="container-fluid contact">
+            <div class="row skill-picture fluid">
+                <div class="col-md-12">
+                    <h2 style="font-size: 18px">Contact</h2>
+                    <hr class="line3">
+                    <div id="contact-links">
+                        <li class="contact-link-icons"><a href="https://www.linkedin.com/in/adrian-jablonski-2bb76262/" target="_blank"><i class="fa fa-linkedin fa-2x linkedin-bottom" aria-hidden="true"></i></a></li>
+                        <li class="contact-link-icons"><a href="https://github.com/Adrian-Jablonski" target="_blank"><i class="fa fa-github fa-2x github-bottom" aria-hidden="true"></i></a></li>
+                        <li class="contact-link-icons"><a href="https://www.freecodecamp.org/adrian-jablonski" target="_blank"><i class="fa fa-free-code-camp fa-2x" aria-hidden="true"></i></a></li>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row fluid">
+                <div class="col-md-12">
+                    <p>Adrian.Jablonski19@gmail.com</p>
+                </div>
+            </div>
+            <div class="row fluid">
+                <div class="col-md-12">
+                    <p>Houston, TX</p>
+                </div>
+            </div>
+            <div class="row fluid">
+                <div class="col-md-12">
+                    <a href="../../index.html"><p id="copyright"></p></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDan7vPZnf7TOz_0cfck6u5M9RqWD7pYA&callback=myMap"
+    type="text/javascript"></script>
+    
+</html>
