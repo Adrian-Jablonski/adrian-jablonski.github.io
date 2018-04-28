@@ -61,14 +61,14 @@
             </div>
             <div id="project-infomation" class="container-fluid">
                 <h2>Code Information</h2>
-                <h4>CSV and JSON Stock List</h4>
+                <h3>CSV and JSON Stock List</h3>
                 <p>To retreive the stock prices, I first downloaded a csv list of around 3,000 stock symbols which included the stock name and sector of the symbols and converted that list to a JSON file. This gave me a list I could later use to: 
                 <ul>
                     <li>Loop through when making an API call for current stock data</li>
                     <li>Use to create an autocomplete stock input search</li>
                 </ul>
                 <p>To loop through the JSON data, I created a for loop that added 100 stock symbols seperated by a comma into a single variable. The reason I created this kind of a variable is because the API call takes the symbols in this format as will be seen in the API section below.</p>
-                <h4>API</h4>
+                <h3>API</h3>
                 <p>The API I used to receive the stock data was from <a href="https://www.alphavantage.co/documentation/" target="_blank">Alphavantage</a>. The reason I used Alphavantage is because they had good documentation and had batch stock quotes available which allowed me to get the current price for 100 stock symbols at a time. </p>
                 <p>To retreive the data and be able to put it into a database, I used node.js and node-fetch as seen in the code below.</p>
 
@@ -183,7 +183,7 @@
                     
                 </div>
 
-                <h4>PostgreSQL</h4>
+                <h3>PostgreSQL</h3>
                 <p>The next step was to insert the stock data into a PostgreSQL database which was done by the below code which is a continuation of the for loop from the API section.</p>
                 
                 <div class="codeText">
@@ -233,7 +233,7 @@
                     </table>
                 </div>
                 
-                <h4>Automatic API calls</h4>
+                <h3>Automatic API calls</h3>
                 <p>The process shown in the above API and PostgreSQL sections are set up with Express.js to run automatically on the server every 24 seconds. At the end of my app.js file, I had the below code which accomplishes this by running the updateBatchStocks function located in a seperate JavaScript file.</p>
                 
                 <div class="codeText">
