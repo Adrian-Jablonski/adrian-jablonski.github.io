@@ -1,6 +1,7 @@
 body, html {
     height: 100%;
     margin: 0;
+    background-color: grey;
 }
 
 #content {
@@ -46,6 +47,77 @@ body, html {
 .comments {
     color: blue;
     font-weight: 900;
+}
+
+.codeText {
+    background-color: rgb(41, 42, 43);
+    color: white;
+    font-size: 18px;
+    overflow-wrap: break-word;
+    overflow-x: scroll;
+    padding: 10px 0;
+    border: 5px solid grey;
+}
+
+.lineNumb {
+    color: lightgray;
+    padding-right: 10px;
+    vertical-align: top;
+    text-align: center;
+    border-right: 1px solid lightgrey;
+}
+
+td {
+    padding-left: 10px;
+}
+
+.codeVar {
+    color: dodgerblue;
+}
+
+.codeVariable {
+    color: lightblue;
+}
+
+.codeString {
+    color: #CE9178;
+}
+
+.codeFunc {
+    color: #FFFF99;
+}
+
+.codeStatements {
+    color: mediumpurple;
+}
+
+.codeConsole {
+    color: palegreen;
+}
+
+.codeNumber {
+    color: #98FB98;
+}
+
+.codeComments {
+/*    color: rgb(103, 107, 121);*/
+    color: darkolivegreen; 
+}
+
+.codeI1 {
+    text-indent: 15px;
+}
+
+.codeI2 {
+    text-indent: 30px;
+}
+
+.codeI3 {
+    text-indent: 45px;
+}
+
+.codeI4 {
+    text-indent: 60px;
 }
 
 /* Section below is needed for contact info section */

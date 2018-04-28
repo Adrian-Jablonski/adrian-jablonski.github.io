@@ -65,47 +65,84 @@
                     <li>Apixu Weather</li>
                 </ul>
                 <p>The <b>Google Places API</b> was used to retrieve information on specific activities in a city. The below code shows how we accessed the API.</p>
-                <code>
-                    var location = document.getElementById("loc")
-                    .value;   <span class="comments">// Gets location from input box</span>
-                    <br>
-                    location = location.substr(0, location.lastIndexOf(","));   <span class="comments">// Removes country from location</span>
-                    <br>
-                    var apiKey = YOUR API KEY HERE  <span class="comments">// Insert your API key here</span>
-                    <br>
-                    activity = "type="
-                    <br>
-                    if ($("#check_box1").is(":checked")) {
-                    <br>&nbsp;&nbsp;
-                        activity += $("#check_box1").val();
-                    <br>
-                    }   <span class="comments">// Adds activity name to the activity variable if check box is checked</span>
-                    <br>
-                    var fullUrl = "https://maps.googleapis.com/maps
-                    <br>/api/place/textsearch/json?query=" + activity + "+in+" + location + "&radius=45000" + apiKey;    <span class="comments">// The full URL to be used to retrieve the Google Places data</span>  
-                </code>
-                <br><br>
-                <p>The <b>Google Maps API</b> was used to map the data that was received. Below is an example of the Map for a search for restaurants in Houston. We also used Google's Marker Clustering which groups any map markers that are close to each other and labels them with the number of places in the area.</p>
-                <img class="img-responsive" src="images/Activity_Finder_Map.png">
                 
+                 <div class="codeText">
+                    <table>
+                        <tr>
+                            <td class="lineNumb">1</td>
+                            <td><span class="codeVar">var</span> <span class="codeVariable">location</span> = <span class="codeVariable">document</span>.<span class="codeFunc">getElementById</span>(<span class="codeString">"loc"</span>).<span class="codeVariable">value</span>;   <span class="codeComments"> // Gets location from input box</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">2</td>
+                            <td><span class="codeVariable">location</span> = <span class="codeVariable">location</span>.<span class="codeFunc">substr</span>(<span class="codeNumber">0</span>, <span class="codeVariable">location</span>.<span class="codeFunc">lastIndexOf</span>(<span class="codeString">","</span>));   <span class="codeComments"> // Removes country</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">3</td>
+                            <td><span class="codeVar">var</span> <span class="codeVariable">apiKey</span> = <span class="codeString">"YOUR API KEY HERE"</span>;  <span class="codeComments"> // Insert your API key here</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">4</td>
+                            <td><span class="codeVar">var</span> <span class="codeVariable">activity</span> = <span class="codeString">"type="</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">5</td>
+                            <td><span class="codeStatements">if</span> (<span class="codeFunc">$</span>(<span class="codeString">"#check_box1"</span>).<span class="codeFunc">is</span>(<span class="codeString">":checked"</span>)) {</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">6</td>
+                            <td class="codeI1"><span class="codeVariable">activity</span> += <span class="codeFunc">$</span>(<span class="codeString">"#check_box1"</span>).<span class="codeFunc">val</span>( ); <span class="codeComments">// Adds activity name to the activity variable if check box is checked</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">7</td>
+                            <td>}  </td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">8</td>
+                            <td><span class="codeVar">var</span> <span class="codeVariable">fullUrl</span> = <span class="codeString">"https://maps.googleapis.com/maps/api/place/textsearch/json?query="</span> + <span class="codeVariable">activity</span> + <span class="codeString">"+in+"</span> + <span class="codeVariable">location</span> + <span class="codeString">"&radius=45000"</span> + <span class="codeVariable">apiKey</span>;<span class="codeComments"> // The full URL to be used to retrieve the Google Places data</span>  </td>
+                        </tr>
+                     </table>
+                </div>
+                
+                <br>
+                <p>The <b>Google Maps API</b> was used to map the data that was received. Below is an example of the Map for a Houston restaurant search. We also used Google's Marker Clustering which groups any map markers that are close to each other and labels them with the number of places in the area.</p>
+                <img class="img-responsive" src="images/Activity_Finder_Map.png">
+                <br>
                 <p>The <b>Google Place Autocomplete API</b> was used to show a list of cities as the user types in the input box. We used this together with Google Places to help the user in finding cities and to prevent search errors from the user typing a city name incorrectly.</p>
                 <p>The below code shows how to access the API to show cities only. The options parameter is optional but leaving it blank would autocomplete for specific places as well as cities.</p>
-                <code>
-                    function autoComplete() {
-                    <br>&nbsp;&nbsp;
-                    var input = document.getElementById('location');    <span class="comments">// Auto complete input box for locations </span>
-                    <br>&nbsp;&nbsp;
-                    var options = {
-                    <br>&nbsp;&nbsp;&nbsp;&nbsp;
-                    types: ["(cities)"] // <span class="comments">Limits search results to city </span>
-                    <br>&nbsp;&nbsp;
-                    };
-                    <br>&nbsp;&nbsp;
-                    var autocomplete = new google.maps.places.Autocomplete(input, options); 
-                    <br>
-                    }
-
-                </code>
+                
+                 <div class="codeText">
+                    <table>
+                        <tr>
+                            <td class="lineNumb">1</td>
+                            <td><span class="codeVar">function</span> <span class="codeFunc">autoComplete</span>( ) {</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">2</td>
+                            <td class="codeI1"><span class="codeVar">var</span> <span class="codeVariable">input</span> = <span class="codeVariable">document</span>.<span class="codeFunc">getElementById</span>(<span class="codeString">"location"</span>);    <span class="codeComments">// Auto complete input box for locations </span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">3</td>
+                            <td class="codeI1"><span class="codeVar">var</span> <span class="codeVariable">options</span> = {</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">4</td>
+                            <td class="codeI2"><span class="codeVariable">types</span>: [<span class="codeString">"(cities)"</span>] <span class="codeComments"> // Limits search results to city </span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">5</td>
+                            <td class="codeI1">};</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">6</td>
+                            <td class="codeI1"><span class="codeVar">var</span> <span class="codeVariable">autocomplete</span> = <span class="codeVar">new</span> <span class="codeConsole">google</span>.<span class="codeConsole">maps</span>.<span class="codeConsole">places</span>.<span class="codeConsole">Autocomplete</span>(<span class="codeVariable">input</span>, <span class="codeVariable">options</span>); </td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">7</td>
+                            <td>}</td>
+                        </tr>
+                    </table>
+                </div>
+                
 <img class="img-responsive screenshot" src="images/Activity_Finder_Autocomplete.png">
                 
                 <p> The <b>Apixu Weather API</b> is used to show the current weather in the right corner of the navigation bar for the city the user is looking for activities in. It was used because it worked well with Google Places Autocomplete once the country was removed from the input field text. Another reason Apixu was used is because they provide weather icons for each weather condition which gives a nice visualization for the user. </p>
