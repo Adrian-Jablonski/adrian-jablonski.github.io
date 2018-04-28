@@ -72,100 +72,199 @@
                 <p>The API I used to receive the stock data was from <a href="https://www.alphavantage.co/documentation/" target="_blank">Alphavantage</a>. The reason I used Alphavantage is because they had good documentation and had batch stock quotes available which allowed me to get the current price for 100 stock symbols at a time. </p>
                 <p>To retreive the data and be able to put it into a database, I used node.js and node-fetch as seen in the code below.</p>
 
-
-                <code>
-                    var stockFile = require
-                    <br>("../public/scripts/data/stock_symbols.json");
-                    <br>
-                    var url = "https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols=";
-                    <br>
-                    var symbol = "MSFT,FB,AAPL";
-                    <br>
-                    var url2 = "&apikey=";
-                    <br>
-                    var apiKey = "Insert your API key here";
-                    <br><br>
-                     <li class="comments">The stockFile variable above accesses the JSON file where the stock symbols are all stored. The remaining variables are all parts of the API link for Batch Stock Quotes. The link is broken up into 4 variables because the symbols will change and because API keys are unique for each person.</li>
-                    <br>
-
-                    1. fetch(url + symbol + url2 + apiKey)
-                    <br>2. &nbsp;&nbsp;
-                        .then(res => res.json())
-                    <br>3. &nbsp;&nbsp;
-                        .then(json => {
-                    <br>4. &nbsp;&nbsp;&nbsp;&nbsp;
-                            var stockData = json;
-                    <br>5. &nbsp;&nbsp;&nbsp;&nbsp;
-                            var stockDataLength = stockData["Stock Quotes"].length;
-
-                    <br><br>
-                    <li class="comments">Lines 1 - 5 retrieve the data from Alphavantage and store it into the stockData variable.</li>
-
-                    <br>6. &nbsp;&nbsp;&nbsp;&nbsp;
-                            for (var i = 0; i &lt stockDataLength; i++) {
-                    <br>7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                var stockName = stockFile[stockIndex + i]["Name"];
-                    <br>8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                var sectorName = stockFile[stockIndex + i]["Sector"];
-                    <br>9 .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                var stockSymbol = (stockData["Stock Quotes"][i]["1. symbol"]);
-                    <br>10.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                var stockPrice = (stockData["Stock Quotes"][i]["2. price"]);
-                    <br>11.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                var stockVolume = (stockData["Stock Quotes"][i]["3. volume"]);
-                    <br>12.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                if (stockVolume === "--") {
-                    <br>13.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    stockVolume = 0; // To prevent errors from stocks without a volume
-                    <br>14.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                }
-                    <br>15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                var stockPriceDate = (stockData["Stock Quotes"][i]["4. timestamp"]);
-                    <br>
-                    <br>
-                </code>
-
-                <li class="comments">Lines 6 - 15 store get the symbol, name, sector, price, volume, and timestamp data from the API which are later stored in a PostgreSQL database. The stockIndex variable is explained in the Automatic API Calls section of this page.</li>
-
+                <div class="codeText">
+                    <table>
+                        <tr>
+                            <td class="lineNumb">1</td>
+                            <td class="col2"><span class="codeVar">var</span> <span class="codeVariable">stockFile</span> = <span class="codeFunc">require</span>( <span class="codeString">"../public/scripts/data/stock_symbols.json"</span><span class="codeComments"> // Accesses the JSON file where the stock symbols are stored</span>);</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">2</td>
+                            <td><span class="codeVar">var</span> <span class="codeVariable">url</span> = <span class="codeString">"https://www.alphavantage.co/query?function=BATCH_STOCK_QUOTES&symbols="</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">3</td>
+                            <td><span class="codeVar">var</span> <span class="codeVariable">symbol</span> = <span class="codeString">"MSFT,FB,AAPL"</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">4</td>
+                            <td><span class="codeVar">var</span> <span class="codeVariable">url2</span> = <span class="codeString">"&apikey="</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">5</td>
+                            <td><span class="codeVar">var</span> <span class="codeVariable">apiKey</span> = <span class="codeString">"Insert your API key here"</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">6</td>
+                            <td><span class="codeComments">// The variables in lines 2 to 5 are all parts of the API link for Batch Stock Quotes. The link is broken up into 4 variables because the symbols will change and because API keys are unique for each person. </span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">7</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">8</td>
+                            <td><span class="codeFunc">fetch</span>(<span class="codeVariable">url</span> + <span class="codeVariable">symbol</span> + <span class="codeVariable">url2</span> + <span class="codeVariable">apiKey</span>)</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">9</td>
+                            <td class="codeI1"><span class="codeFunc">.then</span>(<span class="codeVariable">res</span> <span class="codeVar">=></span> <span class="codeVariable">res</span>.<span class="codeFunc">json</span>( ) )</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">10</td>
+                            <td class="codeI1"><span class="codeFunc">.then</span>(<span class="codeVariable">json</span> <span class="codeVar">=></span> {</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">11</td>
+                            <td class="codeI2"><span class="codeVar">var</span> <span class="codeVariable">stockData</span> = <span class="codeVariable">json</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">12</td>
+                            <td class="codeI2"><span class="codeVar">var</span> <span class="codeVariable">stockDataLength</span> = <span class="codeVariable">stockData</span>[<span class="codeString">"Stock Quotes"</span>].<span class="codeVariable">length</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">13</td>
+                            <td class="codeI2"><span class="codeComments">// Lines 8 - 12 retrieve the data from Alphavantage and store it into the stockData variable.</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">14</td>
+                            <td class="codeI2"></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">15</td>
+                            <td class="codeI2"><span class="codeStatements">for</span> (<span class="codeVar">var</span> <span class="codeVariable">i</span> = 0; i &lt <span class="codeVariable">stockDataLength</span>; <span class="codeVariable">i</span>++) {</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">16</td>
+                            <td class="codeI3"><span class="codeVar">var</span> <span class="codeVariable">stockName</span> = <span class="codeVariable">stockFile</span>[<span class="codeVariable">stockIndex</span> + <span class="codeVariable">i</span>][<span class="codeString">"Name"</span>];</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">17</td>
+                            <td class="codeI3"><span class="codeVar">var</span> <span class="codeVariable">sectorName</span> = <span class="codeVariable">stockFile</span>[<span class="codeVariable">stockIndex</span> + <span class="codeVariable"> i </span>][<span class="codeString">"Sector"</span>];</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">18</td>
+                            <td class="codeI3"><span class="codeVar">var</span> <span class="codeVariable">stockSymbol</span> = (<span class="codeVariable">stockData</span>[<span class="codeString">"Stock Quotes"</span>][ <span class="codeVariable">i</span> ][<span class="codeString">"1. symbol"</span>]);</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">19</td>
+                            <td class="codeI3"><span class="codeVar">var</span> <span class="codeVariable">stockPrice</span> = (<span class="codeVariable">stockData</span>[<span class="codeString">"Stock Quotes"</span>][ <span class="codeVariable">i </span>][<span class="codeString">"2. price"</span>]);</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">20</td>
+                            <td class="codeI3"><span class="codeVar">var</span> <span class="codeVariable">stockVolume</span> = (<span class="codeVariable">stockData</span>[<span class="codeString"><span class="codeString">"Stock Quotes"</span></span>][ <span class="codeVariable">i </span>][<span class="codeString">"3. volume"</span>]);</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">21</td>
+                            <td class="codeI3"><span class="codeStatements">if</span> (<span class="codeVariable">stockVolume</span> === <span class="codeString">"--"</span>) {</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">22</td>
+                            <td class="codeI4"><span class="codeVariable">stockVolume</span> = 0; <span class="codeComments">// To prevent errors from stocks without a volume</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">23</td>
+                            <td class="codeI3">}</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">24</td>
+                            <td class="codeI3"><span class="codeVar">var</span> <span class="codeVariable">stockPriceDate</span> = (<span class="codeVariable">stockData</span>[<span class="codeString">"Stock Quotes"</span>][ <span class="codeVariable">i </span>][<span class="codeString">"4. timestamp"</span>]);</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">25</td>
+                            <td class="codeI3"><span class="codeComments">// The above lines get the symbol, name, sector, price, volume, and timestamp data from the API which are later stored in a PostgreSQL database. The stockIndex variable is explained in the Automatic API Calls section of this page.</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">26</td>
+                            <td class="codeI3"></td>
+                        </tr>
+                        
+                    </table>
+                    
+                </div>
 
                 <h4>PostgreSQL</h4>
-                <p>The next step was to insert the stock data into a PostgreSQL database which was done by the below code which is part of the for loop that was in the API section</p>
+                <p>The next step was to insert the stock data into a PostgreSQL database which was done by the below code which is a continuation of the for loop from the API section.</p>
                 
-                
-                <code>
-                    16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    db.none('INSERT INTO stocks(stock_symbol, current_price, price_update_date, current_volume, stock_price_date, stock_name, sector) values($1, $2, $3, $4, $5, $6, $7)',[stockSymbol, stockPrice, datetime, stockVolume, stockPriceDate, stockName, sectorName]).catch(function(){
-                    <br>17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    });
-                    <br><br>
-                    <li class="comments">The above insert SQL code inserts new stocks into the stocks table. This is only run the first time the code goes through all 3,000 stock symbols.</li>
+                <div class="codeText">
+                    <table>
+                        <tr>
+                            <td class="lineNumb">27</td>
+                            <td class="codeI3"><span class="codeVariable">db</span>.<span class="codeFunc">none</span>(<span class="codeString">"INSERT INTO stocks(stock_symbol, current_price, price_update_date, current_volume, stock_price_date, stock_name, sector) values($1, $2, $3, $4, $5, $6, $7)"</span>,[<span class="codeVariable">stockSymbol</span>, <span class="codeVariable">stockPrice</span>, <span class="codeVariable">datetime</span>, <span class="codeVariable">stockVolume</span>, <span class="codeVariable">stockPriceDate</span>, <span class="codeVariable">stockName</span>, <span class="codeVariable">sectorName</span>]).<span class="codeFunc">catch</span><span class="codeVar">(function</span>( ){ }</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">28</td>
+                            <td class="codeI3"><span class="codeComments">// Inserts new stocks into the stocks table. This is only run the first time the code goes through all 3,000 stock symbols.</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">29</td>
+                            <td class="codeI3">)</td>
+                        </tr>
 
-                    <br>18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    db.any('UPDATE stocks SET current_price = $1, price_update_date = $2, current_volume = $3, stock_price_date = $4 WHERE stock_symbol = $5', [stockPrice, datetime, stockVolume, stockPriceDate, stockSymbol]).catch(function(err){
-                    <br>19.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        console.log(err);
-                    <br>18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    });
-                    <br><br>
-
-                </code>
-                <li class="comments">The above update SQL code updates the stock prices, dates, and volumes for the stock table. This SQL code does not update the company name or sector since those have been added when the stock symbol was first added to the table and are unlikely to change.</li>
-               
+                        <tr>
+                            <td class="lineNumb">30</td>
+                            <td class="codeI3"><span class="codeVariable">db</span>.<span class="codeFunc">any</span>(<span class="codeString">"UPDATE stocks SET current_price = $1, price_update_date = $2, current_volume = $3, stock_price_date = $4 WHERE stock_symbol = $5"</span>, [<span class="codeVariable">stockPrice</span>, <span class="codeVariable">datetime</span>, <span class="codeVariable">stockVolume</span>, <span class="codeVariable">stockPriceDate</span>, <span class="codeVariable">stockSymbol</span>]).<span class="codeFunc">catch</span>(<span class="codeVar">function</span>(<span class="codeVariable">err</span>){</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">31</td>
+                            <td class="codeI3"><span class="codeConsole">console</span>.<span class="codeFunc">log</span>(<span class="codeVariable">err</span>);</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">32</td>
+                            <td class="codeI3">} ) ;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">33</td>
+                            <td class="codeI3"><span class="codeComments">Updates the stock prices, dates, and volumes for the stock table. This SQL code does not update the company name or sector since those have been added when the stock symbol was first added to the table and are unlikely to change.</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">34</td>
+                            <td class="codeI2">} </td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">35</td>
+                            <td class="codeI1">} </td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">36</td>
+                            <td>) </td>
+                        </tr>
+                        
+                    </table>
+                </div>
                 
                 <h4>Automatic API calls</h4>
                 <p>The process shown in the above API and PostgreSQL sections are set up with Express.js to run automatically on the server every 24 seconds. At the end of my app.js file, I had the below code which accomplishes this by running the updateBatchStocks function located in a seperate JavaScript file.</p>
-                <code>
-                    var myStock = require('./util/updateStockPrices.js');
-                    <br>
-                    var server = app.listen(port, function(){
-                    <br>&nbsp;&nbsp; 
-                        console.log('Example app listening on port ' + port);
-                    <br>&nbsp;&nbsp; 
-                        setInterval(myStock.updateBatchStocks, 24000);
-                    <br>
-                    });
-                    <br><br>
-                </code>
+                
+                <div class="codeText">
+                    <table>
+                        <tr>
+                            <td class="lineNumb">1</td>
+                            <td><span class="codeVar">var</span> <span class="codeVariable">port</span> = <span class="codeNumber">3000</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">2</td>
+                            <td><span class="codeVar">var</span><span class="codeVariable"> myStock</span> = <span class="codeFunc">require</span>(<span class="codeString">"./util/updateStockPrices.js"</span>);</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">3</td>
+                            <td><span class="codeVar">var</span><span class="codeVariable"> server</span> = <span class="codeVariable">app</span>.<span class="codeFunc">listen</span>(<span class="codeVariable">port</span>, <span class="codeVar">function</span>(){</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">4</td>
+                            <td class="codeI1"><span class="codeConsole">console</span>.<span class="codeFunc">log</span>(<span class="codeString">"Example app listening on port "</span> + <span class="codeVariable">port</span>);</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">5</td>
+                            <td class="codeI1"><span class="codeFunc">setInterval</span>(<span class="codeVariable">myStock</span>.<span class="codeVariable">updateBatchStocks</span>, <span class="codeNumber">24000</span>);</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">6</td>
+                            <td>});</td>
+                        </tr>
+                    </table>
+                </div>
+                <br>
                 <p>Because the Batch Stock Markey Quote API from Alphavantage can only return current prices for 100 stocks at a time, I had to figure out a way to loop through the JSON file which has over 3,000 stock symbols.</p> 
                 <p>To achieve this, I simply created a variable called stockIndex and initially set it equal to 0. After each time the server runs the API, stockIndex is increased by 100. Once it is greater than the amount of stock symbols in the JSON file, it resets to 0. So since the server is set to automatically run API calls every 24 seconds for 100 stocks, this means it will take about 13 minutes to loop through the 3,000 stock symbols (which was close enough to real time for our project without abusing API calls) </p>
 <!--
