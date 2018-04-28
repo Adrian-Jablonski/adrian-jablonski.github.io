@@ -92,25 +92,41 @@
                 <hr class="line">
                 <h3>How do the defense levels work?</h3>
                 <p>Below are lines of code that control the damage dealt based on the defense level of the character.</p>
-                <p>The defense_benefit variable calculates the amount to reduce from the oponents power level. </p>
-                <p>The defense_times variable calculates how many random numbers to generate before the opponent is no longer limited with their power.</p>
-                <code>
-                    1. damage = random.randint(0, self.power) 
-                    <br>
-                    2. defense_benefit = round(enemy.defense * .3)
-                    <br>
-                    3. defense_times = round(enemy.defense / 2)
-                    <br>
-                    4. count = 0
-                    <br>
-                    5. while damage >= max((self.power - defense_benefit), 1) and count &lt defense_times:
-                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    damage = random.randint(0, self.power)
-                    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    count += 1 
-                    <br><br>
-                </code>
-                <p><b>For Example:</b> The screenshot of the terminal below the code shows an example of a fight between the Hero with 8 power and 20 defense and a Medic with 10 power and 10 defense. The medics defense benefit would come out to 3 (10 Medic defense level * .30). And defense times would come out to 5 (10 defense level / 2) So the hero can only do less than 5 damage (8 Hero power level - 3) in the next random numbers generated</p>
+                
+                <div class="codeText">
+                    <table>
+                        <tr>
+                            <td class="lineNumb">1</td>
+                            <td><span class="codeVariable">damage</span> = random.randint(<span class="codeNumber">0</span>, <span class="codeVar">self</span>.<span class="codeVariable">power</span>)</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">2</td>
+                            <td><span class="codeVariable">defense_benefit</span> = <span class="codeFunc">round</span>(<span class="codeVariable">enemy</span>.<span class="codeVariable">defense</span> * <span class="codeNumber">.3 </span>) <span class="codeComments"> # Calculates amount to reduce opponents power level</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">3</td>
+                            <td><span class="codeVariable">defense_times</span> = <span class="codeFunc">round</span>(<span class="codeVariable">enemy</span>.<span class="codeVariable">defense</span> / <span class="codeNumber">2 </span>) <span class="codeComments"> # Calculates amount of random numbers to generate before the opponents power level returns to normal</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">4</td>
+                            <td><span class="codeVariable">count</span> = <span class="codeNumber">0</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">5</td>
+                            <td><span class="codeStatements">while</span> <span class="codeVariable">damage</span> >= max((<span class="codeVar">self</span>.<span class="codeVariable">power</span> - <span class="codeVariable">defense_benefit</span>), <span class="codeNumber">1</span>) <span class="codeVar">and</span> <span class="codeVariable">count</span> &lt <span class="codeVariable">defense_times</span>:</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">6</td>
+                            <td class="codeI1"><span class="codeVariable">damage</span> = random.randint(<span class="codeNumber">0</span>, self.<span class="codeVariable">power</span>)</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">7</td>
+                            <td class="codeI1"><span class="codeVariable">count</span> += <span class="codeNumber">1</span></td>
+                        </tr>
+                    </table>
+                </div><br>
+                
+                <p><b>For Example:</b> The screenshot of the terminal below shows an example of a fight between the Hero with 8 power and 20 defense and a Medic with 10 power and 10 defense. The medics defense benefit would come out to 3 (10 Medic defense level * .30). And defense times would come out to 5 (10 defense level / 2) So the hero can only do less than 5 damage (8 Hero power level - 3) in the next random numbers generated</p>
                 <p>The hero's first attack shows that the first three damage random numbers are 5, 8, 7. Those three are ignored since they are not less than 5. The fourth random number is a 0 which ends up being the damage dealt to the medic. This makes it unlikely that the hero will do over 5 damage but not impossible. If the first 5 random numbers generated are all above 5, then the sixth number will be the damage dealt even if it ends up being the highest.</p>
                 <img class="img-responsive" src="images/Defense_Level_Example.png">
             </div>

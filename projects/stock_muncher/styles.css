@@ -66,6 +66,7 @@ p {
     overflow-wrap: break-word;
     overflow-x: scroll;
     padding: 10px 0;
+    border: 5px solid grey;
 }
 
 .lineNumb {
