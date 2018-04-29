@@ -77,14 +77,14 @@ li.change-background :hover {
 }
 
 #text {
-    width: 60%;
+    width: 66%;
     text-align: center;
     color: ghostwhite;
     font-size: 34px;
     position: absolute;
     top: 140px;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 17%;
+    margin-right: 17%;
     background-color: rgba(0, 0, 0, .4);
 }
 
