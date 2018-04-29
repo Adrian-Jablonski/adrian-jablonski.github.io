@@ -16,7 +16,6 @@ var dealerCash = 500;
 var winner;
 var pot = 0;
 
-
 document.getElementById("player-cash").innerHTML = "Cash $" + playerCash;
 document.getElementById("dealer-cash").innerHTML = "Cash $" + dealerCash;
 
@@ -76,6 +75,8 @@ function Hand() {
 }
 
 function deal() {
+    document.getElementById("player-card2").src="";
+    document.getElementById("dealer-card2").src="";
     cardNumb = 2;
     // Adjusts bet to not exceed player or dealer cash
     betAmount = Number(document.getElementById("bet").value);
@@ -327,7 +328,13 @@ function gameOver() {
             document.getElementById("player-card" + cardNumb).src="";
             document.getElementById("dealer-card" + cardNumb).src="";
             cardNumb += 1;
+        }
         // reset all variables
+        document.getElementById("player-card1").src="images/cards/red_back.png";
+        document.getElementById("dealer-card1").src="images/cards/red_back.png";
+        document.getElementById("player-card2").src="images/cards/red_back.png";
+        document.getElementById("dealer-card2").src="images/cards/red_back.png";
+        
         playerPoints = 0;
         dealerPoints = 0;
         myHand = new Hand();
@@ -343,7 +350,7 @@ function gameOver() {
         dealerSoftPoints = 0;
             
         dealtCards = [];
-        }
+        
     
     }
     else if (dealerCash === 0) {
