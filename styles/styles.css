@@ -59,7 +59,7 @@ li.change-background :hover {
 #home {
     background-image: url(../Images/Top_Image.jpg);
     background-repeat:no-repeat;
-    background-position:center; 
+    background-position:center;
     min-width: 100%;
     max-width: 100%;
     height: 700px;
@@ -77,15 +77,23 @@ li.change-background :hover {
 }
 
 #text {
-    width: 70%;
+    width: 60%;
     text-align: center;
     color: ghostwhite;
     font-size: 34px;
     position: absolute;
     top: 140px;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
     background-color: rgba(0, 0, 0, .4);
+}
+
+#text2 {
+    margin-left: -12px;
+}
+
+.text2Hide {
+    visibility: hidden;
 }
 
 .skills {

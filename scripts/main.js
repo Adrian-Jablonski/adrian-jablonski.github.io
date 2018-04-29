@@ -15,8 +15,24 @@ var currentYear = date.getFullYear();
 
 var aboutMe = 0;
 
+var blink = 0;
+//var pixalateCount = 11;
+
 $("#about-me-section2, #about-me-section3").hide();
 //$(".previous-about-me").hide();
+
+//var pixalate = function() {
+//    $("#home").removeClass("homeImage" + pixalateCount)
+//    pixalateCount -= 1;
+//     if (pixalateCount <= 1) {
+//        pixalateCount = 1
+//        setInterval(typeLines, 200);
+//    }
+//    $("#home").addClass("homeImage" + pixalateCount);
+//   
+//}
+//
+//setInterval(pixalate, 400);
 
 for (i = 0; i < n; i++) {
     strArray[i] = str[i];
@@ -37,28 +53,44 @@ var typeLines = function() {
             j = 0;
             newStrArray = []
             randNumb = Math.floor(Math.random() * colors.length)
-            $("#text").css("color", colors[randNumb]);
+            $("#text1").css("color", colors[randNumb]);
         }
         else {
             newStrArray += strArray[j];
             j += 1;
         };
 
-        $("#text").html(newStrArray);
+        $("#text1").html(newStrArray);
         //$("#text").html(j);
         
         countInterval += 1;
         if (countInterval > n){
-            runInterval = false
+            runInterval = false;
+            setInterval(insCursor, 700);
         }
         
     }
 }
 
 setInterval(typeLines, 100);
+
 var bootStrapText = 0;
 
-var skillSectionLogos = function(){
+var insCursor = function() {
+    if (blink === 0) {
+        blink += 1;
+        $("#text2").addClass("text2Hide")
+    }
+    else {
+        blink = 0;
+        $("#text2").removeClass("text2Hide");
+    }
+}
+
+
+//setTimeout(setInterval(insCursor, 700),5000);
+
+function skillSectionLogos(){
     var width = document.body.clientWidth;
     
 //    if (width <= 765) {
@@ -89,7 +121,8 @@ var skillSectionLogos = function(){
     }
 }
 
-setInterval(skillSectionLogos, 1000);
+setInterval(skillSectionLogos, 1500);
+
 
 $(".previous-about-me").click(function() {
     if (aboutMe === 1) {
