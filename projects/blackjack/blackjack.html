@@ -121,27 +121,54 @@
                 <h3>Ace Value. 1 or 11?</h3>
                 <p>An ace in Blackjack can have either a value of 1 or 11. The value is a 1 whenever a player goes over 21.</p>
                 <p>To include this event in my game, I created a new variable called playerSoftPoints which starts at a value of 0 for each hand and player. The code below shows that if the point value of the card drawn is 11, 10 should be subtracted from playerSoftPoints.</p>
-                <code>
-                    if (myCard.pointValue === 11) {
-                    <br>&nbsp;&nbsp;&nbsp;
-                        playerSoftPoints -= 10
-                    <br><br>
-                </code>
+                
+                <div class="codeText">
+                    <table>
+                        <tr>
+                            <td class="lineNumb">1</td>
+                            <td><span class="codeStatements">if</span> (<span class="codeVariable">myCard</span>.<span class="codeVariable">pointValue</span> === <span class="codeNumber">11</span>) {</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">2</td>
+                            <td class="codeI1"><span class="codeVariable">playerSoftPoints</span> -= <span class="codeNumber">10</span></td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">3</td>
+                            <td>};</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+                
                 
                 <p>The next line in the code checks if the player went over 21 and if the player has any playerSoftPoints. If the player went over 21, 10 is subtracted from the player's points and added back to playerSoftPoints. </p>
                 
-                <code>
-                    if (playerPoints > 21 && playerSoftPoints &lt 0) {
-                    <br>&nbsp;&nbsp;&nbsp;
-                        playerPoints -= 10;
-                    <br>&nbsp;&nbsp;&nbsp;
-                        myHand.softPoints -= 10;
-                    <br>&nbsp;&nbsp;&nbsp;
-                        playerSoftPoints += 10;
-                    <br>
-                    }    
-                    <br><br>
-                </code>
+                <div class="codeText">
+                    <table>
+                        <tr>
+                            <td class="lineNumb">1</td>
+                            <td><span class="codeStatements">if</span> (<span class="codeVariable">playerPoints</span> > <span class="codeNumber">21</span> && <span class="codeVariable">playerSoftPoints</span> &lt <span class="codeNumber">0</span>) {</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">2</td>
+                            <td class="codeI1"><span class="codeVariable">playerPoints</span> -= <span class="codeNumber">10</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">3</td>
+                            <td class="codeI1"><span class="codeVariable">myHand</span>.<span class="codeVariable">softPoints</span> -= <span class="codeNumber">10</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">4</td>
+                            <td class="codeI1"><span class="codeVariable">playerSoftPoints</span> += <span class="codeNumber">10</span>;</td>
+                        </tr>
+                        <tr>
+                            <td class="lineNumb">5</td>
+                            <td>}</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+
                 <p>The next part of the code checks if the player went over 21 and ends the hand. So if the player had Aces in his hand and went over 21, the hand will continue. If the player had no Aces and went over 21, the player lost the hand.</p>
                 
                 <h3><b>Ace used as 1 point Example</b></h3>
