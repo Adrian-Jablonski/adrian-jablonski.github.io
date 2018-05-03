@@ -381,6 +381,13 @@ p.about-me-text {
     visibility: hidden; 
 }
 
+.codewars {
+    height: 35px;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
 @media only screen and (max-width: 400px) {
     .project-picture {
         width: 95%;
