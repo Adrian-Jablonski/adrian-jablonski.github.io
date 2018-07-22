@@ -70,6 +70,10 @@ li.change-background :hover {
     background-color: black;
 }
 
+.homeImage1, .about-me-pic1, .about-me-pic2, .about-me-pic3 {
+    background-size:cover
+}
+
 .section-heading {
     font-size: 42px;
     text-align: center;
